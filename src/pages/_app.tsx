@@ -8,25 +8,25 @@ import 'react-notifications-component/dist/theme.css';
 import { AppGeneral, CS, globalStore } from 'smart-db';
 import Layout from '../components/UI/Layout/Layout';
 import 'smart-db/dist/styles.css';
-import { Address, MintingPolicy, SpendingValidator } from 'lucid-cardano';
+// import { Address, MintingPolicy, SpendingValidator } from 'lucid-cardano';
 import { createContext, Dispatch, SetStateAction, useState } from 'react';
 import 'styles/global.scss';
-import {mintingPolicyIDPreScript, validatorScript } from '../lib/Commons/Constants/onchain';
+// import {mintingPolicyIDPreScript, validatorScript } from '../lib/Commons/Constants/onchain';
 
-// Define the shape of the application state.
+// // Define the shape of the application state.
 export type AppState = {
-    // Global state variables
-    validatorScript: SpendingValidator; // The script for the market validator.
-    validatorAddress?: Address; // The address of the market (optional).
-    mintingPolicyIDPreScript: MintingPolicy; // The pre-script for minting policy.
-    mintingPolicyIDScript?: MintingPolicy; // The script for minting policy (optional).
-    mintingPolicyID_CS?: CS; // The asset class of the minting policy (optional).
+//     // Global state variables
+//     validatorScript: SpendingValidator; // The script for the market validator.
+//     validatorAddress?: Address; // The address of the market (optional).
+//     mintingPolicyIDPreScript: MintingPolicy; // The pre-script for minting policy.
+//     mintingPolicyIDScript?: MintingPolicy; // The script for minting policy (optional).
+//     mintingPolicyID_CS?: CS; // The asset class of the minting policy (optional).
 };
 
-// Initial state for the app, with default values.
+// // Initial state for the app, with default values.
 const initialAppState: AppState = {
-    validatorScript: validatorScript,
-    mintingPolicyIDPreScript: mintingPolicyIDPreScript 
+//     validatorScript: validatorScript,
+//     mintingPolicyIDPreScript: mintingPolicyIDPreScript 
 };
 
 // Create a context for managing the app state globally.

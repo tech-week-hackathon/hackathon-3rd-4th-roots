@@ -139,9 +139,8 @@ The following files will be generated after running the scripts:
 - `marketValidator.plutus` – The CBOR representation of the marketplace validator script.  
 - `PolicyID.plutus` – The CBOR representation of the minting policy.  
 
-**Note:**  
-- The **PolicyID.plutus** is generated without applying specific parameters. This allows flexibility to set parameters in the **off-chain code** dynamically, enabling the reuse of the validator in various contexts.  
-- Ensure the generated CBOR files are copied to the appropriate directory in your SmartDB project (e.g., `/src/contracts`) for integration with your off-chain application.
+> - The **PolicyID.plutus** is generated without applying specific parameters. This allows flexibility to set parameters in the **off-chain code** dynamically, enabling the reuse of the validator in various contexts.  
+> - Ensure the generated CBOR files are copied to the appropriate directory in your SmartDB project (e.g., `/src/contracts`) for integration with your off-chain application.
 
 #### Example File Structure
 After generating and copying the CBOR files, your project structure should look like this:  
