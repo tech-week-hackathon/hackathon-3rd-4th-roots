@@ -1,10 +1,9 @@
-# Simple Market Example
+# Step-by-Step Guide - Simple Market Example
 
 This repository serves as a **template** for projects implementing **SmartDB**. It includes predefined configurations and tools to facilitate the development of projects, from scaffolding entities to deploying on-chain components and interacting with a [Simple Marketplace](https://github.com/protofire/Cardano-Simple-Marketplace).
 
-
 ## Table of Contents
-- [Simple Market Example](#simple-market-example)
+- [Step-by-Step Guide - Simple Market Example](#step-by-step-guide---simple-market-example)
   - [Table of Contents](#table-of-contents)
   - [Step-by-Step Guide](#step-by-step-guide)
     - [Step 1: Deploy On-Chain Components](#step-1-deploy-on-chain-components)

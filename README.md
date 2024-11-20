@@ -32,7 +32,7 @@ For detailed documentation, please visit our [Gitbook](https://protofire-docs.gi
 
 ```plaintext
 ├── docs/
-│   └── simpleMarketExample.md     # Step-by-step example of an 
+│   └── Step-by-Step.md           # Step-by-step example of an 
 │                                    end-to-end implementation
 ├── src/
 │   ├── components/                # UI components for frontend
@@ -88,7 +88,7 @@ To get started with the Scaffold Project, follow the instructions in its [offici
 Once installed, you can use the scaffold commands to generate entities for your SmartDB project.
 ## Market Place Example
 
-Explore a comprehensive [**step-by-step guide**](./docs/simpleMarketExample.md) for building an end-to-end project with SmartDB in the file.
+Explore a comprehensive [**step-by-step guide**](./docs/Step-by-Step.md) for building an end-to-end project with SmartDB in the file.
 
 This example demonstrates how to:
 - Implement entities using SmartDB.
