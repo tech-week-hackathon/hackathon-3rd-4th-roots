@@ -6,6 +6,7 @@ Welcome to the **SmartDB Project Template**! This repository provides a ready-to
 - [SmartDB Project Template](#smartdb-project-template)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
+  - [Documentation](#documentation)
   - [Directory Structure](#directory-structure)
   - [Getting Started](#getting-started)
     - [1. Create Your Repository](#1-create-your-repository)
@@ -23,6 +24,9 @@ Welcome to the **SmartDB Project Template**! This repository provides a ready-to
 - **SmartDB Integration**: Prepares your project to use the SmartDB library, including environment setup and example configurations.
 - **Customizable Components**: Easily extend and adapt the template to fit your specific use case.
 
+## Documentation
+
+For detailed documentation, please visit our [Gitbook](https://protofire-docs.gitbook.io/smartdb/smartdb-project-template/).
 
 ## Directory Structure
 
@@ -95,6 +99,6 @@ This example demonstrates how to:
 ## Learn More
 
 - **Documentation**: For detailed SmartDB library documentation, visit [SmartDB Docs](https://protofire-docs.gitbook.io/smartdb).
-- **Support**: Reach out to us via [Issues](https://github.com/your-organization/smartdb-project-template/issues) for assistance or to report bugs.
+- **Support**: Reach out to us via [Issues](https://github.com/protofire/Cardano-SmartDB-Template/issues) for assistance or to report bugs.
 
 Happy coding with SmartDB! 🎉
