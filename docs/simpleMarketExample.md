@@ -66,14 +66,14 @@ The contract can be found in the [Cardano-Simple-Marketplace repository](https:/
 
 #### Generating CBOR Files
 
-To generate the **CBOR files** required to deploy the on-chain components, use the scripts provided in the [on-chain documentation](https://github.com/protofire/Cardano-Simple-Marketplace/blob/main/docs/onchain.md).  
+To generate the **CBOR files** required to deploy the on-chain components, use the scripts provided in the [on-chain documentation](https://protofire-docs.gitbook.io/smartdb/cardano-simple-marketplace/onchain).  
 
 1. Clone the **Cardano-Simple-Marketplace** repository:  
    ```bash
    git clone https://github.com/protofire/Cardano-Simple-Marketplace.git
    cd Cardano-Simple-Marketplace
    ```
-2. Follow the instructions of the [CLI Script](https://github.com/protofire/Cardano-Simple-Marketplace/blob/main/docs/onchain.md#key-functions-of-clish) to execute the scripts for generating the necessary CBOR files for the validator and policies.  
+2. Follow the instructions of the [CLI Script](https://protofire-docs.gitbook.io/smartdb/cardano-simple-marketplace/onchain#key-functions-of-clish) to execute the scripts for generating the necessary CBOR files for the validator and policies.  
 
 
 #### Generated Files
@@ -1152,7 +1152,7 @@ For further details and advanced use cases, we recommend consulting the official
 
 ### Step 10: How to Run It
 
-Now that the implementation is complete, it’s time to install the dependencies and test the functionality of your application. Follow the [installation instructions](https://github.com/protofire/Cardano-Simple-Marketplace/blob/main/docs/installation.md) to get the project up and running.
+Now that the implementation is complete, it’s time to install the dependencies and test the functionality of your application. Follow the [installation instructions](https://protofire-docs.gitbook.io/smartdb/cardano-simple-marketplace/installation) to get the project up and running.
 
 Now you’re ready to explore and test the implemented features of your application!
 
@@ -1162,7 +1162,7 @@ Now you’re ready to explore and test the implemented features of your applicat
 ### **Interacting with the Simple Marketplace**
 
 To learn how to use the marketplace page included in this template, refer to the detailed instructions provided in the documentation:  
-[Usage Guide](https://github.com/protofire/Cardano-Simple-Marketplace/blob/main/docs/usage.md#usage)
+[Usage Guide](https://protofire-docs.gitbook.io/smartdb/cardano-simple-marketplace/usage)
 
 This guide covers step-by-step how to interact with the marketplace, including performing actions like buying, selling, withdrawing tokens, and synchronizing blockchain data with the database. It provides an overview of the available features and user workflows, ensuring you can fully utilize the implemented components.
 
