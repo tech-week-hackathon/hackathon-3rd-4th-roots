@@ -48,23 +48,27 @@ export default function CommitteePage() {
         <h1 className={styles.title}>Committee Actions Details</h1>
         <div className={styles.voteSection}>
           <h2 className={styles.subtitle}>Votes</h2>
-          <div className={styles.dash}></div>
+          <div className={styles.voteGroup}>
+          <div className={styles.dash}>a</div>
           <div className={styles.voteList}>
             {committee.map((commiteeVotes) => {
               return (
                 <div
                   key={commiteeVotes.scriptHash}
-                  className={styles.committeeItem}
+                  className={styles.voteItem}
                 >
                   <p className={styles.text}>
                     {formatAddressUI(
                       convertHashToBech32Committee(commiteeVotes.scriptHash)
                     )}
                   </p>
+                  <p>{commiteeVotes.vote}</p>
                 </div>
               );
             })}
           </div>
+          </div>
+
         </div>
       </div>
     </>

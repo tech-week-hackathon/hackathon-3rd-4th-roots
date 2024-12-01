@@ -11,4 +11,52 @@
     font: fonts.$t32-bold;
     margin-bottom: 64px;
   }
+
+  .voteSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .subtitle {
+      font: fonts.$t24-bold;
+      margin-bottom: 32px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .voteGroup {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      gap: 20px;
+
+      .dash {
+        width: 30%;
+      }
+
+      .voteList {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .voteItem {
+          padding: 16px;
+          width: 100%;
+          height: 100px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background: colors.$secondary-color;
+          border-radius: 16px;
+          box-shadow: colors.$box-shadow-card;
+          transition: all 0.2s ease-in-out;
+          position: relative;
+        }
+      }
+    }
+
+  }
 }
