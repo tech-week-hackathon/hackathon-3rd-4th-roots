@@ -4,7 +4,6 @@
 
 - [dExpo - Decentralized Exposition](#dexpo---decentralized-exposition)
   - [Cardano \& Midnight Hackathon Project](#cardano--midnight-hackathon-project)
-    - [Team: 3rd \& 4th-roots](#team-3rd--4th-roots)
   - [Overview](#overview)
   - [Problem Statement](#problem-statement)
   - [Technical Research](#technical-research)
@@ -29,7 +28,7 @@
 
 ## Cardano & Midnight Hackathon Project
 
-### Team: 3rd & 4th-roots
+**Team:** 3rd & 4th-roots
 
 ## Overview
 
