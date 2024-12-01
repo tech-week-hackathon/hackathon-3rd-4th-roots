@@ -27,19 +27,37 @@ import {
   formatAddressUI,
 } from "@example/src/utils/formats";
 import { useRouter } from "next/router";
+import { fetchFromIPFS } from "@example/src/utils/ipfs";
 
 export default function Constitution() {
-  const { } = useConstitution();
+  const {} = useConstitution();
 
   const [constitutions, setConstitution] = useState<ConstitutionEntity[]>([]);
+  const [content, setContent] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchConstitution = async () => {
       try {
-        const result: ConstitutionEntity[] = await ConstitutionApi.getAllApi_();
-        setConstitution(result);
-      } catch (error) {
+        const result: ConstitutionEntity | undefined =
+          await ConstitutionApi.getOneByParamsApi_();
+        if (!result) {
+          throw new Error("Failed to fetch constitution");
+        }
+        setConstitution([result]);
+
+        setError(null);
+        setContent(null);
+        try {
+          const data = await fetchFromIPFS(result.url);
+          setContent(data);
+        } catch (err) {
+          setError(
+            "Failed to fetch content from IPFS. Make sure the CID is correct."
+          );
+        }
+
         console.error("Error fetching Constitution:", error);
       } finally {
         setLoading(false);
@@ -66,10 +84,20 @@ export default function Constitution() {
         <div className={styles.committeeList}>
           {constitutions.map((constitution) => {
             return (
-              <div key={constitution.dataHash} className={styles.committeeItem}>
-                <p className={styles.text}>
-                  {constitution.url}
-                </p>
+              <div>
+                <div
+                  key={constitution.dataHash}
+                  className={styles.committeeItem}
+                >
+                  <p className={styles.text}>{constitution.url}</p>
+                </div>
+
+                <div
+                  key={constitution.dataHash}
+                  className={styles.committeeItem}
+                >
+                  <p className={styles.text}>{content}</p>
+                </div>
               </div>
             );
           })}
