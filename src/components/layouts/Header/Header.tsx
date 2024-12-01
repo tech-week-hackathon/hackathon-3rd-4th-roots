@@ -1,12 +1,14 @@
 import { LOGO } from "@/utils/images";
 import styles from "./Header.module.scss";
 import Image from "next/image";
-import { CardanoWallet } from "@meshsdk/react";
+import { CardanoWallet, useWallet } from "@meshsdk/react";
 import Link from "next/link";
 import { useState } from "react";
 import ModalCandidate from "../../Commons/ModalCandidate/ModalCandidate";
 
 export default function Header() {
+  const { connected, wallet } = useWallet();
+
   const [isTxModalOpen, setIsTxModalOpen] = useState(false); // State for showing transaction modal
   return (
     <>
@@ -26,7 +28,11 @@ export default function Header() {
           <div className={styles.nav}>
             <button
               className={styles.invalidButton}
-              onClick={() => setIsTxModalOpen(true)}
+              onClick={() => {
+                if (connected === true) {
+                  setIsTxModalOpen(true);
+                }
+              }}
             >
               Be candidate
             </button>
