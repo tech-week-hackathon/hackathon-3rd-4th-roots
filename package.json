@@ -34,6 +34,7 @@
     "easy-peasy": "^5.0.4",
     "fs-extra": "^10.1.0",
     "governance-app-proto": "file:",
+    "ipfs-http-client": "^60.0.1",
     "lucid-cardano": "^0.10.10",
     "next": "^12.1.6",
     "next-auth": "^4.22.1",
