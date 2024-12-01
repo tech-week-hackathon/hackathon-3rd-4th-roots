@@ -53,6 +53,14 @@ export default function CommitteePage() {
     if (vote === "VoteAbstain") return styles.voteabstain;
   }
 
+  const voteCounts = {
+    yes: committee.filter((vote) => vote.vote === "VoteYes").length,
+    no: committee.filter((vote) => vote.vote === "VoteNo").length,
+    abstain: committee.filter((vote) => vote.vote === "VoteAbstain").length,
+  };
+
+  const dataValues: number[] = [voteCounts.yes, voteCounts.no, voteCounts.abstain];
+
   if (!id || loading) {
     return <div className={styles.page}>Loading...</div>;
   }
@@ -67,9 +75,11 @@ export default function CommitteePage() {
           <h1 className={styles.title}>Committee Actions Details</h1>
           <h2 className={styles.subtitle}>{id}</h2>
         </div>
-        <div className={styles.dash}>
-          <PieChartVote />
-        </div>
+        {committee.length > 0 && (
+          <div className={styles.dash}>
+            <PieChartVote dataValues={dataValues} />
+          </div>
+        )}
 
         <div className={styles.voteSection}>
           <h2 className={styles.subtitle}>Votes</h2>

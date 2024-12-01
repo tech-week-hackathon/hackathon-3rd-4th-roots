@@ -9,19 +9,20 @@ import {
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 interface PieChartVoteProps {
-  dataValues: number[];
+  dataValues?: number[];
 }
 
-const PieChartVote: React.FC = () => {
+const PieChartVote: React.FC = (props: PieChartVoteProps) => {
+  const { dataValues } = props;
   const data = {
-    labels: ['No', 'Yes', 'Abstain'],
+    labels: ['Yes', 'No', 'Abstain'],
     datasets: [
       {
         label: 'My First Dataset',
-        data: [1, 2, 3],
+        data: dataValues,
         backgroundColor: [
-          '#A52019',
           '#317f43',
+          '#A52019',
           '#E5BE01',
         ],
         hoverOffset: 4,

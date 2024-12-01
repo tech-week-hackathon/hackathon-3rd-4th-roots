@@ -709,13 +709,13 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Committees | Governance DApp</title>
-        <meta name="description" content="Governance DApp" />
+        <title>Committees | dExpo</title>
+        <meta name="description" content="dExpo" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.page}>
-        <h1 className={styles.title}>Welcome to Governance DApp</h1>
+        <h1 className={styles.title}>Welcome to dExpo</h1>
         <h2 className={styles.subtitle}>Active Committees</h2>
         <div className={styles.committeeList}>
           {commitees.map((commitee) => {
