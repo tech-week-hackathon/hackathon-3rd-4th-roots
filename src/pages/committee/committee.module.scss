@@ -7,10 +7,31 @@
   align-items: center;
   padding-inline: 20px;
 
-  .title {
-    font: fonts.$t32-bold;
+  .titles {
     margin-bottom: 64px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+
+    .title {
+      font: fonts.$t32-bold;
+    }
+
+    .subtitle {
+      font: fonts.$t24-bold;
+      margin-bottom: 32px;
+      width: 100%;
+      text-align: center;
+    }
   }
+
+  .dash {
+    width: 100%;
+    max-width: 500px;
+  }
+
+
 
   .voteSection {
     display: flex;
@@ -25,38 +46,76 @@
       text-align: center;
     }
 
-    .voteGroup {
-      display: flex;
+
+
+    .voteList {
       width: 100%;
-      justify-content: space-between;
-      gap: 20px;
+      max-width: 700px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
 
-      .dash {
-        width: 30%;
-      }
-
-      .voteList {
-        width: 70%;
+      .voteItem {
+        padding-inline: 50px;
+        width: 100%;
+        height: 100px;
         display: flex;
-        flex-direction: column;
         align-items: center;
+        justify-content: space-between;
+        background: colors.$secondary-color;
+        border-radius: 16px;
+        box-shadow: colors.$box-shadow-card;
+        transition: all 0.2s ease-in-out;
+        position: relative;
+        gap: 20px;
 
-        .voteItem {
-          padding: 16px;
-          width: 100%;
-          height: 100px;
+        .voteResult {
           display: flex;
-          flex-direction: column;
           align-items: center;
-          justify-content: center;
-          background: colors.$secondary-color;
-          border-radius: 16px;
-          box-shadow: colors.$box-shadow-card;
-          transition: all 0.2s ease-in-out;
-          position: relative;
+          gap: 16px;
+          justify-content: flex-end;
+
+          .justify {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            gap: 8px;
+            cursor: pointer;
+
+            &:hover {
+              .text {
+                color: colors.$extra-color;
+              }
+
+              .icon {
+                fill: colors.$extra-color;
+              }
+            }
+          }
+
+          .voteStatus {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+
+            &.voteyes {
+              background: colors.$approval-color;
+            }
+
+            &.voteno {
+              background: colors.$negative-color;
+            }
+
+            &.voteabstain {
+              background: colors.$abstain-color;
+            }
+          }
         }
+
       }
     }
+
 
   }
 }

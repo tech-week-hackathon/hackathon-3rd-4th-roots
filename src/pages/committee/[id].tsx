@@ -1,7 +1,13 @@
 import { useRouter } from "next/router";
-import { CommitteeVoteApi } from "@example/src/lib/SmartDB/FrontEnd";
+import {
+  CommitteeVoteApi,
+  ProposalApi,
+} from "@example/src/lib/SmartDB/FrontEnd";
 import { useEffect, useState } from "react";
-import { CommitteeVoteEntity } from "@example/src/lib/SmartDB/Entities";
+import {
+  CommitteeVoteEntity,
+  ProposalEntity,
+} from "@example/src/lib/SmartDB/Entities";
 import {
   convertBech32CommitteeToHash,
   convertHashToBech32Committee,
@@ -9,9 +15,13 @@ import {
 } from "@example/src/utils/formats";
 import styles from "./committee.module.scss";
 import Head from "next/head";
+import { LINK } from "@example/src/utils/images";
+import Link from "next/link";
+import PieChartVote from "@example/src/components/charts/pie";
 
 export default function CommitteePage() {
   const [committee, setCommittee] = useState<CommitteeVoteEntity[]>([]);
+  const [proposals, setProposals] = useState<ProposalEntity[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   const router = useRouter();
@@ -25,7 +35,9 @@ export default function CommitteePage() {
           await CommitteeVoteApi.getByParamsApi_({
             scriptHash: convertBech32CommitteeToHash(id as string),
           });
+        const proposals: ProposalEntity[] = await ProposalApi.getAllApi_();
         setCommittee(result);
+        setProposals(proposals);
       } catch (error) {
         console.error("Error fetching dreps:", error);
       } finally {
@@ -34,6 +46,12 @@ export default function CommitteePage() {
     };
     fetchComittees();
   }, []);
+
+  function voteStatus(vote: string) {
+    if (vote === "VoteYes") return styles.voteyes;
+    if (vote === "VoteNo") return styles.voteno;
+    if (vote === "VoteAbstain") return styles.voteabstain;
+  }
 
   if (!id || loading) {
     return <div className={styles.page}>Loading...</div>;
@@ -45,30 +63,59 @@ export default function CommitteePage() {
         <title>Committee Details | DApp</title>
       </Head>
       <div className={styles.page}>
-        <h1 className={styles.title}>Committee Actions Details</h1>
+        <div className={styles.titles}>
+          <h1 className={styles.title}>Committee Actions Details</h1>
+          <h2 className={styles.subtitle}>{id}</h2>
+        </div>
+        <div className={styles.dash}>
+          <PieChartVote />
+        </div>
+
         <div className={styles.voteSection}>
           <h2 className={styles.subtitle}>Votes</h2>
-          <div className={styles.voteGroup}>
-          <div className={styles.dash}>a</div>
+
           <div className={styles.voteList}>
             {committee.map((commiteeVotes) => {
+              const matchingProposal = proposals.find(
+                (proposal) =>
+                  proposal.actionId === commiteeVotes.proposalActionId
+              );
+
               return (
-                <div
-                  key={commiteeVotes.scriptHash}
-                  className={styles.voteItem}
-                >
-                  <p className={styles.text}>
-                    {formatAddressUI(
-                      convertHashToBech32Committee(commiteeVotes.scriptHash)
-                    )}
+                <div key={commiteeVotes.scriptHash} className={styles.voteItem}>
+                  <p>
+                    {`Proposal txId: 
+                      ${
+                        matchingProposal &&
+                        formatAddressUI(matchingProposal.txId)
+                      }`}
                   </p>
-                  <p>{commiteeVotes.vote}</p>
+                  <div className={styles.voteResult}>
+                    {commiteeVotes.url && (
+                      <div className={styles.justify}>
+                        <p className={styles.text}>Justification</p>
+                        <Link
+                          href={commiteeVotes.url}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <svg width="18" height="18" className={styles.icon}>
+                            <use href={LINK}></use>
+                          </svg>
+                        </Link>
+                      </div>
+                    )}
+
+                    <div
+                      className={`${styles.voteStatus} ${voteStatus(
+                        commiteeVotes.vote
+                      )}`}
+                    ></div>
+                  </div>
                 </div>
               );
             })}
           </div>
-          </div>
-
         </div>
       </div>
     </>
