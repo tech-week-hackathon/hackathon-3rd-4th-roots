@@ -37,6 +37,7 @@
       transition: all 0.2s ease-in-out;
       position: relative;
       gap: 20px;
+      padding-block: 20px;
 
       .text {
         font: fonts.$f20-medium;
@@ -47,8 +48,10 @@
         flex-direction: column;
         gap: 8px;
         max-width: 300px;
+        min-width: 300px;
         .text {
-          text-align: center;
+          max-width: 300px;
+          word-break: break-word;
         }
       }
 
