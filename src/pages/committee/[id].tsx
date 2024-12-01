@@ -50,13 +50,13 @@ export default function CommitteePage() {
   function voteStatus(vote: string) {
     if (vote === "VoteYes") return styles.voteyes;
     if (vote === "VoteNo") return styles.voteno;
-    if (vote === "VoteAbstain") return styles.voteabstain;
+    if (vote === "Abstain") return styles.voteabstain;
   }
 
   const voteCounts = {
     yes: committee.filter((vote) => vote.vote === "VoteYes").length,
     no: committee.filter((vote) => vote.vote === "VoteNo").length,
-    abstain: committee.filter((vote) => vote.vote === "VoteAbstain").length,
+    abstain: committee.filter((vote) => vote.vote === "Abstain").length,
   };
 
   const dataValues: number[] = [voteCounts.yes, voteCounts.no, voteCounts.abstain];
