@@ -1,10 +1,15 @@
 $primary-font: 'Geist Mono', monospace;
 $title-font: 'Geist Sans', sans-serif;
 
+$t32-bold: 700 2rem #{$title-font};
 
 $t24-bold: 700 1.5rem #{$title-font};
 $t24-medium: 500 1.5rem #{$title-font};
 $t24-regular: 400 1.5rem #{$title-font};
+
+$t20-bold: 700 1.25rem #{$title-font};
+$t20-medium: 500 1.25rem #{$title-font};
+$t20-regular: 400 1.25rem #{$title-font};
 
 $t16-bold: 700 1rem #{$title-font};
 $t16-medium: 500 1rem #{$title-font};
@@ -13,8 +18,8 @@ $f16-bold: 700 1rem #{$primary-font};
 $f16-medium: 500 1rem #{$primary-font};
 $f16-regular: 400 1rem #{$primary-font};
 
-
 $f14-medium: 500 0.875rem #{$primary-font};
+$f14-regular: 400 0.875rem #{$primary-font};
 
 $f12-medium: 500 0.75rem #{$primary-font};
 $f12-regular: 400 0.75rem #{$primary-font};

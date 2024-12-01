@@ -9,18 +9,25 @@
   justify-content: space-between;
   padding-inline: 20px;
   .navSection {
-    width: 70%;
+    width: 20%;
     height: 100%;
     display: flex;
     align-items: center;
-    .logo {
-      width: 100px;
-      height: 100%;
+    .navLogo {
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 80px;
+      height: 100%;
+      .logo {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
-    .nav {
+/*     .nav {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -35,12 +42,12 @@
           transform: scale(1.05);
         }
       }
-    }
+    } */
   }
   .btnActions {
-    width: 30%;
+    width: 80%;
     display: flex;
     align-items: center; 
-    justify-content: center;
+    justify-content: flex-end;
   }
 }

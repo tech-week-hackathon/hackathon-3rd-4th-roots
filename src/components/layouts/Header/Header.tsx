@@ -9,15 +9,15 @@ export default function Header() {
   return (
     <section className={styles.header}>
       <div className={styles.navSection}>
-        <Link className={styles.logo} href="/">
-          <Image src={LOGO} alt="Logo" width={80} height={80} />
+        <Link className={styles.navLogo} href="/">
+          <div className={styles.logo}><Image src={LOGO} alt="Logo" width={80} height={80} layout="fixed"/></div>
+          
         </Link>
-        <div className={styles.nav}>
-          <Link href="/">Dashboard</Link>
-          <Link href="/">Drep Directory</Link>
+{/*         <div className={styles.nav}>
           <Link href="/">Committees</Link>
+          <Link href="/">Drep Directory</Link>
           <Link href="/">Proposals</Link>
-        </div>
+        </div> */}
       </div>
 
       <div className={styles.btnActions}>
