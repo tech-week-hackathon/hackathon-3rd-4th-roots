@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import styles from './ModalCandidate.module.scss';
 import { useModalCandidate } from './useModalCandidate';
+import Link from 'next/link';
 
 // Define the interface for the component's props
 interface ModalCandidateProps {
@@ -44,7 +45,7 @@ const ModalCandidate: React.FC<ModalCandidateProps> = ({
         <textarea
           value={proposalText}
           onChange={(e) => handleInputChange(e)}
-          placeholder="Enter your proposal..."
+          placeholder="Enter your proposal for candidature:"
           className={styles.textarea}
         ></textarea>
       </div>
@@ -58,7 +59,7 @@ const ModalCandidate: React.FC<ModalCandidateProps> = ({
           onChange={(e) => handleCheckChange(e)}
         />
         <label htmlFor="termsCheckbox" className={styles.text}>
-          I agree to the <a href="https://example.com/terms" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>
+          I agree to the <Link href="/code-conduct" target="_blank" rel="noopener noreferrer">Terms and Conditions</Link>
         </label>
       </div>
 
@@ -68,7 +69,7 @@ const ModalCandidate: React.FC<ModalCandidateProps> = ({
         disabled={!connected || !isTermsChecked || proposalText.trim() === ""}
         className={styles.proposalButton}
       >
-        Submit Proposal
+        Submit Candidature
       </button>
 
       {/* Close button for the modal */}
