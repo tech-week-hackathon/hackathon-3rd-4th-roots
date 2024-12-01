@@ -49,8 +49,8 @@ export default function index() {
                       {formatAddressUI(candidate.address)}
                     </p>
                     <div className={styles.proposal}>
-                      <p>Proposal</p>
-                      <p>{candidate.propursal}</p>
+                      <p className={styles.text}>Proposal</p>
+                      <p className={styles.text}>{candidate.propursal}</p>
                     </div>
                   </div>
                 );
