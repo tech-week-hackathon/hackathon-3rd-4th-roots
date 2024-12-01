@@ -8,21 +8,44 @@ directive @specialType(typeName:String!) on FIELD
 directive @default(defaultValue:String!) on FIELD
 directive @convertible(params: [String]) on FIELD
 
-type member @entity @index(indexName:["name", "hash", "epoch"]) {
- name: String
- description: String
- hash: String
- epoch: String
- epoch_until: Int
+type committee @entity @index(indexName:["scriptHash"]) {
+ scriptHash: String
+ revelance: Int
+ lala: String
+ la: String
 }
 
-type postulation @entity {
- member_id: Int
+type proposal @entity {
+ actionId: String
+ txId: String
+ status: String
+ proposedIn: Int
+ expiresAfter: Int
+ dataHash: String
+ url: String
+ deposit: String
 }
 
-type votes @entity { 
- postulation_id: Int
- address: String
+type dRepVote @entity {
+ proposalActionId: String
+ keyHash: String
+ vote: String
+}
+
+type stakePoolVote @entity {
+ proposalActionId: String
+ poolId: String
+ vote: String
+}
+
+type currentParameters @entity {
+ collateralPercentage: Int
+ committeeMaxTermLength: Int
+ committeeminSize: Int
+ monetaryExpansion: Float
+ treasuryCut: Float
+ maxTxSize: Int
+ txFeePerByte: Float
 }
 
 

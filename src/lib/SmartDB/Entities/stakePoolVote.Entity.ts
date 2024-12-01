@@ -3,14 +3,18 @@ import { Convertible, BaseEntity, asEntity } from 'smart-db';
 import {  } from 'lucid-cardano';
 
 @asEntity()
-export class postulationEntity extends BaseEntity {
-    protected static _apiRoute: string = 'postulation';
-    protected static _className: string = 'postulation';
+export class stakePoolVoteEntity extends BaseEntity {
+    protected static _apiRoute: string = 'stakepoolvote';
+    protected static _className: string = 'stakePoolVote';
 
 
     // #region fields
     @Convertible()
-    member_id!: number;
+    proposalActionId!: string;
+    @Convertible()
+    poolId!: string;
+    @Convertible()
+    vote!: string;
 
     // #endregion fields
 
@@ -20,7 +24,9 @@ export class postulationEntity extends BaseEntity {
 
     public static alwaysFieldsForSelect: Record<string, boolean> = {
         ...super.alwaysFieldsForSelect,
-          member_id: true,
+          proposalActionId: true,
+          poolId: true,
+          vote: true,
     };
 
     // #endregion db
