@@ -12,6 +12,13 @@ export function convertHashToBech32Committee(hash: string): string {
   return bech32;
 }
 
+export function convertBech32CommitteeToHash(bech32: string): string {
+  const scriptHash = Cardano.ScriptHash.from_bech32(bech32);
+  const bytes = scriptHash.to_bytes();
+  const hex = Buffer.from(bytes).toString("hex");
+  return hex;
+}
+
 export function formatAddressUI(address: string): string {
   if (!address) return "";
   return `${address.slice(0,8)}...${address.slice(-8)}`

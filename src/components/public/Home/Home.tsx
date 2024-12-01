@@ -26,6 +26,7 @@ import {
   convertHashToBech32Committee,
   formatAddressUI,
 } from "@example/src/utils/formats";
+import { useRouter } from "next/router";
 
 // Función principal para leer y guardar los datos
 async function processAndSaveQueryData() {
@@ -564,13 +565,13 @@ export default function Home() {
     console.log(convertHashToBech32(commit[0].scriptHash));
   } */
 
-  const [commitees, setCommmitees] = useState<BaseEntity[]>([]);
+  const [commitees, setCommmitees] = useState<CommitteeEntity[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchComittees = async () => {
       try {
-        const result = await CommitteeApi.getAllApi_();
+        const result: CommitteeEntity[] = await CommitteeApi.getAllApi_();
         setCommmitees(result);
       } catch (error) {
         console.error("Error fetching dreps:", error);
@@ -583,6 +584,12 @@ export default function Home() {
 
   if (loading) {
     return <div className={styles.page}>Loading...</div>;
+  }
+
+  const router = useRouter();
+
+  function handleClickCommittee(id: string) {
+    router.push(`/committee/${id}`);
   }
 
   return (
@@ -599,14 +606,14 @@ export default function Home() {
         <div className={styles.committeeList}>
           {commitees.map((commitee) => {
             return (
-              <div key={commitee.id} className={styles.committeeItem}>
+              <div key={commitee.scriptHash} className={styles.committeeItem}>
                 <p className={styles.text}>
                   {formatAddressUI(
                     convertHashToBech32Committee(commitee.scriptHash)
                   )}
                 </p>
                 <p className={styles.active}>Active until epoch: {commitee.revelance}</p>
-                <div className={styles.btnCommittee}>View Committee</div>
+                <div className={styles.btnCommittee} onClick={() =>  handleClickCommittee(convertHashToBech32Committee(commitee.scriptHash))}>View Committee</div>
               </div>
             );
           })}
