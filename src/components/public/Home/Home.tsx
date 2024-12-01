@@ -85,9 +85,9 @@ async function extractAndSaveData(jsonData: any) {
     // Guardar Votos del Comité
     const committeeVotes = Object.entries(proposal.committeeVotes);
     for (const [scriptHash, voteData] of committeeVotes) {
-      const decision = typeof voteData === 'string' ? voteData : voteData.decision;
-      const dataHash = typeof voteData === 'object' && voteData.anchor ? voteData.anchor.dataHash : null;
-      const url = typeof voteData === 'object' && voteData.anchor ? voteData.anchor.url : null;
+      const decision = typeof voteData === 'string' ? voteData : (voteData as any).decision;
+      const dataHash = typeof voteData === 'object' && (voteData as any).anchor ? (voteData as any).anchor.dataHash : null;
+      const url = typeof voteData === 'object' && (voteData as any).anchor ? (voteData as any).anchor.url : null;
 
       const committeeVoteExists = await CommitteeVoteApi.checkIfExistsApi_({
         proposalActionId: proposal.actionId.govActionIx,
@@ -107,9 +107,9 @@ async function extractAndSaveData(jsonData: any) {
     // Guardar Votos de DRep
     const dRepVotes = Object.entries(proposal.dRepVotes);
     for (const [keyHash, voteData] of dRepVotes) {
-      const decision = typeof voteData === 'string' ? voteData : voteData.decision;
-      const dataHash = typeof voteData === 'object' && voteData.anchor ? voteData.anchor.dataHash : null;
-      const url = typeof voteData === 'object' && voteData.anchor ? voteData.anchor.url : null;
+      const decision = typeof voteData === 'string' ? voteData : (voteData as any).decision;
+      const dataHash = typeof voteData === 'object' && (voteData as any).anchor ? (voteData as any).anchor.dataHash : null;
+      const url = typeof voteData === 'object' && (voteData as any).anchor ? (voteData as any).anchor.url : null;
 
       const dRepVoteExists = await DRepVoteApi.checkIfExistsApi_({
         proposalActionId: proposal.actionId.govActionIx,
@@ -129,9 +129,9 @@ async function extractAndSaveData(jsonData: any) {
     // Guardar Votos de Stake Pools
     const stakePoolVotes = Object.entries(proposal.stakePoolVotes);
     for (const [poolId, voteData] of stakePoolVotes) {
-      const decision = typeof voteData === 'string' ? voteData : voteData.decision;
-      const dataHash = typeof voteData === 'object' && voteData.anchor ? voteData.anchor.dataHash : null;
-      const url = typeof voteData === 'object' && voteData.anchor ? voteData.anchor.url : null;
+      const decision = typeof voteData === 'string' ? voteData : (voteData as any).decision;
+      const dataHash = typeof voteData === 'object' && (voteData as any).anchor ? (voteData as any).anchor.dataHash : null;
+      const url = typeof voteData === 'object' && (voteData as any).anchor ? (voteData as any).anchor.url : null;
 
       const stakePoolVoteExists = await StakePoolVoteApi.checkIfExistsApi_({
         proposalActionId: proposal.actionId.govActionIx,

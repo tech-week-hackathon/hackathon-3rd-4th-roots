@@ -17,7 +17,10 @@ import styles from "./committee.module.scss";
 import Head from "next/head";
 import { LINK } from "@example/src/utils/images";
 import Link from "next/link";
-import PieChartVote from "@example/src/components/charts/pie";
+import {
+  PieChartVote,
+  PieChartVoteProps,
+} from "@example/src/components/charts/pie";
 
 export default function CommitteePage() {
   const [committee, setCommittee] = useState<CommitteeVoteEntity[]>([]);
@@ -59,7 +62,11 @@ export default function CommitteePage() {
     abstain: committee.filter((vote) => vote.vote === "Abstain").length,
   };
 
-  const dataValues: number[] = [voteCounts.yes, voteCounts.no, voteCounts.abstain];
+  const dataValues: number[] = [
+    voteCounts.yes,
+    voteCounts.no,
+    voteCounts.abstain,
+  ];
 
   if (!id || loading) {
     return <div className={styles.page}>Loading...</div>;
@@ -82,58 +89,62 @@ export default function CommitteePage() {
         )}
 
         <div className={styles.voteSection}>
-          
-          {
-            committee.length > 0 ? (
-              <>
+          {committee.length > 0 ? (
+            <>
               <h2 className={styles.subtitle}>Votes</h2>
               <div className={styles.voteList}>
-              {committee.map((commiteeVotes) => {
-                const matchingProposal = proposals.find(
-                  (proposal) =>
-                    proposal.actionId === commiteeVotes.proposalActionId
-                );
-  
-                return (
-                  <div key={commiteeVotes.scriptHash} className={styles.voteItem}>
-                    <p>
-                      {`Proposal txId: 
+                {committee.map((commiteeVotes) => {
+                  const matchingProposal = proposals.find(
+                    (proposal) =>
+                      proposal.actionId === commiteeVotes.proposalActionId
+                  );
+
+                  return (
+                    <div
+                      key={commiteeVotes.scriptHash}
+                      className={styles.voteItem}
+                    >
+                      <p>
+                        {`Proposal txId: 
                         ${
                           matchingProposal &&
                           formatAddressUI(matchingProposal.txId)
                         }`}
-                    </p>
-                    <div className={styles.voteResult}>
-                      {commiteeVotes.url && (
-                        <div className={styles.justify}>
-                          <p className={styles.text}>Justification</p>
-                          <Link
-                            href={commiteeVotes.url}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            <svg width="18" height="18" className={styles.icon}>
-                              <use href={LINK}></use>
-                            </svg>
-                          </Link>
-                        </div>
-                      )}
-  
-                      <div
-                        className={`${styles.voteStatus} ${voteStatus(
-                          commiteeVotes.vote
-                        )}`}
-                      ></div>
+                      </p>
+                      <div className={styles.voteResult}>
+                        {commiteeVotes.url && (
+                          <div className={styles.justify}>
+                            <p className={styles.text}>Justification</p>
+                            <Link
+                              href={commiteeVotes.url}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <svg
+                                width="18"
+                                height="18"
+                                className={styles.icon}
+                              >
+                                <use href={LINK}></use>
+                              </svg>
+                            </Link>
+                          </div>
+                        )}
+
+                        <div
+                          className={`${styles.voteStatus} ${voteStatus(
+                            commiteeVotes.vote
+                          )}`}
+                        ></div>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
-              </>
-
-            ) : ( <h2 className={styles.subtitle}>No Votes yet</h2> )
-          }
-
+                  );
+                })}
+              </div>
+            </>
+          ) : (
+            <h2 className={styles.subtitle}>No Votes yet</h2>
+          )}
         </div>
       </div>
     </>

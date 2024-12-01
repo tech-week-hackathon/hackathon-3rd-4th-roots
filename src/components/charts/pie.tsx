@@ -8,11 +8,12 @@ import {
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-interface PieChartVoteProps {
+export interface PieChartVoteProps {
   dataValues?: number[];
 }
 
-const PieChartVote: React.FC = (props: PieChartVoteProps) => {
+export const PieChartVote: React.FC<PieChartVoteProps> = (props) => {
+
   const { dataValues } = props;
   const data = {
     labels: ['Yes', 'No', 'Abstain'],
@@ -35,5 +36,4 @@ const PieChartVote: React.FC = (props: PieChartVoteProps) => {
   );
 };
 
-export default PieChartVote;
 
