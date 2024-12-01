@@ -15,6 +15,8 @@ export class DRepVoteEntityMongo extends BaseEntityMongo  {
     // proposalActionId:String
     // keyHash:String
     // vote:String
+    // dataHash:String
+    // url:String
 
     // #endregion fields
 
@@ -53,12 +55,16 @@ export class DRepVoteEntityMongo extends BaseEntityMongo  {
             proposalActionId: string;
             keyHash: string;
             vote: string;
+            dataHash: string;
+            url: string;
         }
 
         const schema = new Schema<Interface>({
             proposalActionId: { type: String, required: true },
             keyHash: { type: String, required: true },
             vote: { type: String, required: true },
+            dataHash: { type: String, required: false },
+            url: { type: String, required: false },
         });
 
         const ModelDB = models[this._mongoTableName] || model<Interface>(this._mongoTableName, schema);

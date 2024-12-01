@@ -28,18 +28,24 @@ type DRepVote @entity {
  proposalActionId: String
  keyHash: String
  vote: String
+ dataHash: String @nullable
+ url: String @nullable
 }
 
 type StakePoolVote @entity {
  proposalActionId: String
  poolId: String
  vote: String
+ dataHash: String @nullable
+ url: String @nullable
 }
 
 type CommitteeVote @entity {
  proposalActionId: String
  scriptHash: String
  vote: String
+ dataHash: String @nullable
+ url: String @nullable
 }
 
 type Constitution @entity {
@@ -56,6 +62,17 @@ type CurrentParameters @entity {
  treasuryCut: Float
  maxTxSize: Int
  txFeePerByte: Float
+}
+
+type Candidate @entity @index(indexName:["address"]) {
+ address: String
+ conditionTerm: Boolean
+ propursal: String @nullable
+}
+
+type Vote @entity {
+ propursalId: ID
+ address: String
 }
 
 

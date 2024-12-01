@@ -7,3 +7,5 @@ export * from './CurrentParameters.Entity';
 
 export * from './CommitteeVote.Entity';
 export * from './Constitution.Entity';
+export * from './Candidate.Entity';
+export * from './Vote.Entity';

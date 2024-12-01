@@ -14,3 +14,7 @@ export * from './CommitteeVote.Entity.Mongo';
 export * from './CommitteeVote.Entity.PostgreSQL';
 export * from './Constitution.Entity.Mongo';
 export * from './Constitution.Entity.PostgreSQL';
+export * from './Candidate.Entity.Mongo';
+export * from './Candidate.Entity.PostgreSQL';
+export * from './Vote.Entity.Mongo';
+export * from './Vote.Entity.PostgreSQL';
