@@ -16,7 +16,7 @@ export function convertBech32CommitteeToHash(bech32: string): string {
   const scriptHash = Cardano.ScriptHash.from_bech32(bech32);
   const bytes = scriptHash.to_bytes();
   const hex = Buffer.from(bytes).toString("hex");
-  return hex;
+  return `scriptHash-${hex}`;
 }
 
 export function formatAddressUI(address: string): string {
