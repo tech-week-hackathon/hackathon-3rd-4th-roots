@@ -41,13 +41,17 @@ export default function index() {
         {candidates.length > 0 ? (
           <>
             <h2 className={styles.subtitle}>Active Proposals</h2>
-            <div className={styles.committeeList}>
+            <div className={styles.candidateList}>
               {candidates.map((candidate) => {
                 return (
                   <div key={candidate._DB_id} className={styles.candidateItem}>
                     <p className={styles.text}>
                       {formatAddressUI(candidate.address)}
                     </p>
+                    <div className={styles.proposal}>
+                      <p>Proposal</p>
+                      <p>{candidate.propursal}</p>
+                    </div>
                   </div>
                 );
               })}

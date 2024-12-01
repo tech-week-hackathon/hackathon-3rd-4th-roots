@@ -14,14 +14,15 @@
     text-align: center;
   }
 
-  .container {
+
     .content {
       width: 90%;
       background: colors.$secondary-color;
       box-shadow: colors.$box-shadow-card;
-      padding: 20px;
+      padding: 40px;
+      border-radius: 20px;
     }
-  }
+
 
 }
 

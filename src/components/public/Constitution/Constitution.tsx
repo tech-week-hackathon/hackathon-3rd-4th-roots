@@ -79,9 +79,8 @@ export default function Constitution() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.page}>
-        <h1 className={styles.title}>Welcome to dExpo</h1>
         <h2 className={styles.subtitle}>Active Constitution</h2>
-        <div className={styles.committeeList}>
+        <div className={styles.constitution}>
           {constitutions.map((constitution) => {
             return (
               <div>

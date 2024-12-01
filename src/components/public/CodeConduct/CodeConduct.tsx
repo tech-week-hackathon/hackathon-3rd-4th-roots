@@ -50,7 +50,6 @@ export default function CodeConduct() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.page}>
-        <div className={styles.container}>
           <h1 className={styles.title}>
             Code of Conduct for Cardano Governance Participants
           </h1>
@@ -200,8 +199,7 @@ export default function CodeConduct() {
             </section>
           </div>
 
-          <br />
-        </div>
+
       </div>
     </>
   );
