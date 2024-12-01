@@ -1,0 +1,19 @@
+@use '@styles/settings/fonts';
+@use '@styles/settings/colors';
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 20px;
+
+  .title {
+    font: fonts.$t32-bold;
+    margin-bottom: 64px;
+  }
+  .subtitle {
+    font: fonts.$t24-bold;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+}
