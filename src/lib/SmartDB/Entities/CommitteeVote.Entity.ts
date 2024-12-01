@@ -15,6 +15,10 @@ export class CommitteeVoteEntity extends BaseEntity {
     scriptHash!: string;
     @Convertible()
     vote!: string;
+    @Convertible()
+    dataHash?: string;
+    @Convertible()
+    url?: string;
 
     // #endregion fields
 
@@ -27,6 +31,8 @@ export class CommitteeVoteEntity extends BaseEntity {
           proposalActionId: true,
           scriptHash: true,
           vote: true,
+          dataHash: true,
+          url: true,
     };
 
     // #endregion db

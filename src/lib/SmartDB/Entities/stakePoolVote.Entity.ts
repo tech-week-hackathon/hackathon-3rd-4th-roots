@@ -15,6 +15,10 @@ export class StakePoolVoteEntity extends BaseEntity {
     poolId!: string;
     @Convertible()
     vote!: string;
+    @Convertible()
+    dataHash?: string;
+    @Convertible()
+    url?: string;
 
     // #endregion fields
 
@@ -27,6 +31,8 @@ export class StakePoolVoteEntity extends BaseEntity {
           proposalActionId: true,
           poolId: true,
           vote: true,
+          dataHash: true,
+          url: true,
     };
 
     // #endregion db

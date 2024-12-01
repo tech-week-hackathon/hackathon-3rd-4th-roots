@@ -20,6 +20,10 @@ export class CommitteeVoteEntityPostgreSQL extends BaseEntityPostgreSQL  {
     scriptHash!:string;
     @Column({ type: "varchar", length: 255  })
     vote!:string;
+    @Column({ type: "varchar", length: 255 , nullable: true })
+    dataHash?:string;
+    @Column({ type: "varchar", length: 255 , nullable: true })
+    url?:string;
 
     // #endregion fields
 
