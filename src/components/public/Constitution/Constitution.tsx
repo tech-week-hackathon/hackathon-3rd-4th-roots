@@ -31,69 +31,45 @@ import { useRouter } from "next/router";
 export default function Constitution() {
   const { } = useConstitution();
 
-  // Effect hook to trigger the script generation when the Lucid instance is available
-  useEffect(() => {
-    const fetch = async () => {
-    };
-
-    fetch();
-  }, []);
-
-  /*   async function getDataCommittee() {
-    const commit = await CommitteeApi.getAllApi_();
-
-    console.log(convertHashToBech32(commit[0].scriptHash));
-  } */
-
-  const [commitees, setCommmitees] = useState<CommitteeEntity[]>([]);
+  const [constitutions, setConstitution] = useState<ConstitutionEntity[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const fetchComittees = async () => {
+    const fetchConstitution = async () => {
       try {
-        const result: CommitteeEntity[] = await CommitteeApi.getAllApi_();
-        setCommmitees(result);
+        const result: ConstitutionEntity[] = await ConstitutionApi.getAllApi_();
+        setConstitution(result);
       } catch (error) {
-        console.error("Error fetching dreps:", error);
+        console.error("Error fetching Constitution:", error);
       } finally {
         setLoading(false);
       }
     };
-    fetchComittees();
+    fetchConstitution();
   }, []);
 
   if (loading) {
     return <div className={styles.page}>Loading...</div>;
   }
 
-  const router = useRouter();
-
-  function handleClickCommittee(id: string) {
-    router.push(`/committee/${id}`);
-  }
-
   return (
     <>
       <Head>
-        <title>Committees | dExpo</title>
+        <title>Constitution | dExpo</title>
         <meta name="description" content="dExpo" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.page}>
         <h1 className={styles.title}>Welcome to dExpo</h1>
-        <h2 className={styles.subtitle}>Active Committees</h2>
+        <h2 className={styles.subtitle}>Active Constitution</h2>
         <div className={styles.committeeList}>
-          {commitees.map((commitee) => {
+          {constitutions.map((constitution) => {
             return (
-              <div key={commitee.scriptHash} className={styles.committeeItem}>
+              <div key={constitution.dataHash} className={styles.committeeItem}>
                 <p className={styles.text}>
-                  {formatAddressUI(
-                    convertHashToBech32Committee(commitee.scriptHash)
-                  )}
+                  {constitution.url}
                 </p>
-                <p className={styles.active}>Active until epoch: {commitee.revelance}</p>
-                <div className={styles.btnCommittee} onClick={() => handleClickCommittee(convertHashToBech32Committee(commitee.scriptHash))}>View Committee</div>
               </div>
             );
           })}
