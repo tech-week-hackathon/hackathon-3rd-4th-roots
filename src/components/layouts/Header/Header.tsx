@@ -14,7 +14,7 @@ export default function Header() {
     <>
       <section className={styles.header}>
         <div className={styles.navSection}>
-          <Link className={styles.navLogo} href="/">
+          <Link className={styles.navLogo} href="/" style={{cursor:"pointer"}}>
             <div className={styles.logo}>
               <Image
                 src={LOGO}
@@ -22,6 +22,7 @@ export default function Header() {
                 width={80}
                 height={80}
                 layout="fixed"
+                style={{cursor:"pointer"}}
               />
             </div>
           </Link>
