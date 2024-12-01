@@ -18,8 +18,8 @@ export class ProposalEntityPostgreSQL extends BaseEntityPostgreSQL  {
     actionId!:string;
     @Column({ type: "varchar", length: 255  })
     txId!:string;
-    @Column({ type: "varchar", length: 255  })
-    status!:string;
+    @Column({ type: "varchar", length: 255 , nullable: true })
+    status?:string;
     @Column({ type: "int"  })
     proposedIn!:number;
     @Column({ type: "int"  })

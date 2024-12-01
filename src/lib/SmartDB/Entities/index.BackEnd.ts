@@ -1,14 +1,4 @@
 
-export * from './committee.Entity.Mongo';
-export * from './committee.Entity.PostgreSQL';
-export * from './proposal.Entity.Mongo';
-export * from './proposal.Entity.PostgreSQL';
-export * from './dRepVote.Entity.Mongo';
-export * from './dRepVote.Entity.PostgreSQL';
-export * from './stakePoolVote.Entity.Mongo';
-export * from './stakePoolVote.Entity.PostgreSQL';
-export * from './currentParameters.Entity.Mongo';
-export * from './currentParameters.Entity.PostgreSQL';
 export * from './Committee.Entity.Mongo';
 export * from './Committee.Entity.PostgreSQL';
 export * from './Proposal.Entity.Mongo';
@@ -19,3 +9,8 @@ export * from './StakePoolVote.Entity.Mongo';
 export * from './StakePoolVote.Entity.PostgreSQL';
 export * from './CurrentParameters.Entity.Mongo';
 export * from './CurrentParameters.Entity.PostgreSQL';
+
+export * from './CommitteeVote.Entity.Mongo';
+export * from './CommitteeVote.Entity.PostgreSQL';
+export * from './Constitution.Entity.Mongo';
+export * from './Constitution.Entity.PostgreSQL';

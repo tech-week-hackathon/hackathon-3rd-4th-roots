@@ -68,7 +68,7 @@ export class ProposalEntityMongo extends BaseEntityMongo  {
         const schema = new Schema<Interface>({
             actionId: { type: String, required: true },
             txId: { type: String, required: true },
-            status: { type: String, required: true },
+            status: { type: String, required: false },
             proposedIn: { type: Number, required: true },
             expiresAfter: { type: Number, required: true },
             dataHash: { type: String, required: true },

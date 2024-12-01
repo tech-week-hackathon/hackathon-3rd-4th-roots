@@ -28,6 +28,7 @@
   "dependencies": {
     "@meshsdk/core": "1.7.20",
     "@meshsdk/react": "1.7.20",
+    "fs-extra": "^10.1.0",
     "governance-app-proto": "file:",
 
     "@meshsdk/core": "1.7.20",
