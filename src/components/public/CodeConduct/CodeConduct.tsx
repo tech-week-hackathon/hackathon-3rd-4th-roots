@@ -29,75 +29,181 @@ import {
 import { useRouter } from "next/router";
 
 export default function CodeConduct() {
-  const { } = useCodeConduct();
+  const {} = useCodeConduct();
 
-  // Effect hook to trigger the script generation when the Lucid instance is available
+  const [loading, setLoading] = useState<boolean>(false);
+
   useEffect(() => {
-    const fetch = async () => {
-
-    };
-
+    const fetch = async () => {};
     fetch();
-  }, []);
-
-  /*   async function getDataCommittee() {
-    const commit = await CommitteeApi.getAllApi_();
-
-    console.log(convertHashToBech32(commit[0].scriptHash));
-  } */
-
-  const [commitees, setCommmitees] = useState<CommitteeEntity[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    const fetchComittees = async () => {
-      try {
-        const result: CommitteeEntity[] = await CommitteeApi.getAllApi_();
-        setCommmitees(result);
-      } catch (error) {
-        console.error("Error fetching dreps:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchComittees();
   }, []);
 
   if (loading) {
     return <div className={styles.page}>Loading...</div>;
   }
-
-  const router = useRouter();
-
-  function handleClickCommittee(id: string) {
-    router.push(`/committee/${id}`);
-  }
-
   return (
     <>
       <Head>
-        <title>Committees | dExpo</title>
+        <title>Code of Conduct | dExpo</title>
         <meta name="description" content="dExpo" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.page}>
         <h1 className={styles.title}>Welcome to dExpo</h1>
-        <h2 className={styles.subtitle}>Active Committees</h2>
-        <div className={styles.committeeList}>
-          {commitees.map((commitee) => {
-            return (
-              <div key={commitee.scriptHash} className={styles.committeeItem}>
-                <p className={styles.text}>
-                  {formatAddressUI(
-                    convertHashToBech32Committee(commitee.scriptHash)
-                  )}
-                </p>
-                <p className={styles.active}>Active until epoch: {commitee.revelance}</p>
-                <div className={styles.btnCommittee} onClick={() => handleClickCommittee(convertHashToBech32Committee(commitee.scriptHash))}>View Committee</div>
-              </div>
-            );
-          })}
+        <div className={styles.container}>
+          <h1 className={styles.title}>
+            Code of Conduct for Cardano Governance Participants
+          </h1>
+          <p>
+            This Code of Conduct outlines the ethical and operational guidelines
+            for Delegated Representatives (DReps) and members of the
+            Constitutional Committee (CC) participating in the Cardano
+            governance system. By signing this document, you agree to uphold the
+            principles of transparency, integrity, and accountability in your
+            actions and decisions as a representative of the Cardano community.
+          </p>
+
+          <section className={styles.section}>
+            <h2 className={styles.heading}>1. Core Principles</h2>
+            <ul className={styles.list}>
+              <li>
+                <strong>Transparency:</strong> Openly communicate your actions,
+                motivations, and any potential conflicts of interest to the
+                community.
+              </li>
+              <li>
+                <strong>Integrity:</strong> Act honestly and ethically in all
+                governance activities.
+              </li>
+              <li>
+                <strong>Accountability:</strong> Take responsibility for your
+                decisions and actions.
+              </li>
+              <li>
+                <strong>Community Focus:</strong> Prioritize the long-term
+                well-being of the Cardano blockchain.
+              </li>
+              <li>
+                <strong>Respectful Engagement:</strong> Engage in constructive
+                and respectful dialogue with stakeholders.
+              </li>
+            </ul>
+          </section>
+
+          <section className={styles.section}>
+            <h2 className={styles.heading}>2. Voting Responsibilities</h2>
+            <ul className={styles.list}>
+              <li>
+                <strong>Informed Participation:</strong> Research and understand
+                the implications of each governance proposal.
+              </li>
+              <li>
+                <strong>Independent Judgment:</strong> Evaluate proposals and
+                cast votes free from undue influence.
+              </li>
+              <li>
+                <strong>Active Engagement:</strong> Maintain a consistent voting
+                record and participate actively.
+              </li>
+              <li>
+                <strong>Transparent Communication:</strong> Explain the
+                rationale behind your votes to the community.
+              </li>
+              <li>
+                <strong>Recusal in Conflicts:</strong> Recuse yourself when you
+                have a declared conflict of interest.
+              </li>
+            </ul>
+          </section>
+
+          <section className={styles.section}>
+            <h2 className={styles.heading}>3. Community Engagement</h2>
+            <ul className={styles.list}>
+              <li>
+                <strong>Accessibility and Responsiveness:</strong> Be accessible
+                to the community and respond to inquiries.
+              </li>
+              <li>
+                <strong>Constructive Feedback:</strong> Seek and consider
+                feedback from the community.
+              </li>
+              <li>
+                <strong>Educational Initiatives:</strong> Promote understanding
+                of the Cardano governance system.
+              </li>
+            </ul>
+          </section>
+
+          <section className={styles.section}>
+            <h2 className={styles.heading}>
+              4. Conflict of Interest Management
+            </h2>
+            <ul className={styles.list}>
+              <li>
+                <strong>Proactive Disclosure:</strong> Disclose any potential
+                conflicts of interest transparently.
+              </li>
+              <li>
+                <strong>Conflict Mitigation:</strong> Take steps to mitigate
+                potential conflicts.
+              </li>
+              <li>
+                <strong>Transparency in Compensation:</strong> Disclose the
+                source and amount of any compensation received.
+              </li>
+            </ul>
+          </section>
+
+          <section className={styles.section}>
+            <h2 className={styles.heading}>
+              5. Adherence to Governance Processes
+            </h2>
+            <ul className={styles.list}>
+              <li>
+                <strong>Respect for Procedures:</strong> Follow the established
+                procedures in the Cardano Constitution.
+              </li>
+              <li>
+                <strong>Compliance with Guardrails:</strong> Ensure actions
+                align with guidelines and restrictions.
+              </li>
+              <li>
+                <strong>Support for Amendments:</strong> Engage in the process
+                of amending and improving the governance system.
+              </li>
+            </ul>
+          </section>
+
+          <section className={styles.section}>
+            <h2 className={styles.heading}>6. Continuous Improvement</h2>
+            <ul className={styles.list}>
+              <li>
+                <strong>Self-Reflection:</strong> Regularly reflect on your
+                performance and seek improvement.
+              </li>
+              <li>
+                <strong>Professional Development:</strong> Stay informed about
+                developments within the ecosystem.
+              </li>
+              <li>
+                <strong>Community Collaboration:</strong> Collaborate with
+                others to identify areas for improvement.
+              </li>
+            </ul>
+          </section>
+
+          <section className={styles.agreement}>
+            <h2 className={styles.heading}>Agreement</h2>
+            <p>
+              This Code of Conduct draws upon the principles and concepts
+              written in the CIP 1694 and Cardano Constitution draft published
+              on 20.11.2024. By signing below, I acknowledge that I have read,
+              understood, and agree to abide by this Code of Conduct for Cardano
+              Governance Participants.
+            </p>
+          </section>
+          <br/>
         </div>
       </div>
     </>
