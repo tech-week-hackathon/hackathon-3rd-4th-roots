@@ -1,26 +1,30 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 
-export const metadata = {
-    title: 'Cardano Simple Marketplace - SmartDB Example',
-    description: '',
-    applicationName: 'Cardano Simple Marketplace - SmartDB Example',
-    themeColor: '#ffffff',
-};
-
 export default function Document() {
 
 	return (
-		<Html lang="en">
-			<Head>
-					<title>{metadata.title}</title>
-                    <meta name="description" content={metadata.description} />
-                    <meta name="application-name" content={metadata.applicationName} />
-                    <meta name="theme-color" content={metadata.themeColor} />
-			</Head>
-			<body>
-				<Main />
-				<NextScript />
-			</body>
-		</Html>
+    <Html lang="en">
+      <Head>
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="Governance DApp" />
+        <link rel="manifest" href="/site.webmanifest" />
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
 	)
 }

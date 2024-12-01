@@ -1,6 +1,6 @@
 {
-  "name": "example-use-smart-db",
-  "version": "1.0.0",
+  "name": "governance-app-proto",
+  "version": "0.1.0",
   "private": true,
   "engines": {
     "node": ">=18"
@@ -26,6 +26,13 @@
     "swagger-start": "NODE_ENV=production ts-node -P tsconfig.server.json ./_swagger/server.ts"
   },
   "dependencies": {
+    "@meshsdk/core": "1.7.20",
+    "@meshsdk/react": "1.7.20",
+    "governance-app-proto": "file:",
+
+    "@meshsdk/core": "1.7.20",
+    "@meshsdk/react": "1.7.20",
+    "governance-app-proto": "file:",
     "easy-peasy": "^5.0.4",
     "lucid-cardano": "^0.10.10",
     "next": "^12.1.6",
