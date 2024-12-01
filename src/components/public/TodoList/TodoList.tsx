@@ -66,7 +66,7 @@ export default function TodoList() {
               community.
             </p>
             <section className={styles.section}>
-              <h2 className={styles.heading}>1. Core Principles</h2>
+              <h2 className={styles.heading}>Core Principles</h2>
               <ul className={styles.list}>
                 <li><strong>Informative Resources:</strong> Provide clear and concise educational materials within the DApp explaining the potential issues arising from dual roles and the importance of conflict mitigation. This could help CC members, DReps, and Ada holders make informed decisions. (ASTRA TEXT)</li>
                 <li><strong>Visual Indicators:</strong> Implement visual cues within the DApp to highlight voting situations where a CC member might have a conflict of interest due to their DRep role. For example, a warning icon could appear next to proposals that the CC member, also acting as a DRep, has voted on or is scheduled to vote on.</li>
