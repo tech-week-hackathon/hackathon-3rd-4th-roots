@@ -9,31 +9,33 @@
   justify-content: space-between;
   padding-inline: 20px;
   .navSection {
-    width: 20%;
+    width: calc(100% - 290px);
     height: 100%;
     display: flex;
     align-items: center;
+    gap: 20px;
     .navLogo {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 80px;
       height: 100%;
+      cursor: pointer;
       .logo {
         width: 80px;
         height: 80px;
         display: flex;
         align-items: center;
         justify-content: center;
-        cursor: pointer;
       }
     }
-/*     .nav {
+    .nav {
+      width: calc(100% - 80px);
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 20px;
-      a {
+      a, button {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -43,10 +45,10 @@
           transform: scale(1.05);
         }
       }
-    } */
+    }
   }
   .btnActions {
-    width: 80%;
+    width: 250px;
     display: flex;
     align-items: center; 
     justify-content: flex-end;
