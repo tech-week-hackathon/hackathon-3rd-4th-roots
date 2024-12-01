@@ -38,7 +38,7 @@ export default function Header() {
             </button>
             <Link href="/code-conduct">Code Conduct</Link>
             <Link href="/constitution">Constitution</Link>
-            <Link href="/candidature">Candidature</Link>
+            <Link href="/candidature">Candidatures</Link>
             <Link href="/toDoList">To Do List</Link>
           </div>
         </div>

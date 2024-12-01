@@ -1,8 +1,8 @@
-import { CandidateApi } from '@example/src/lib/SmartDB/FrontEnd';
-import { CandidateEntity } from '@example/src/lib/SmartDB/Entities/index';
-import { useState } from 'react';
-import { useWallet } from '@meshsdk/react';
-import { BrowserWallet } from '@meshsdk/core';
+import { CandidateApi } from "@example/src/lib/SmartDB/FrontEnd";
+import { CandidateEntity } from "@example/src/lib/SmartDB/Entities/index";
+import { useState } from "react";
+import { useWallet } from "@meshsdk/react";
+import { BrowserWallet } from "@meshsdk/core";
 
 // Define the return type for the useModalCandidate hook
 interface UseModalCandidateReturn {
@@ -17,10 +17,9 @@ interface UseModalCandidateReturn {
   connected: boolean;
 }
 
-
 // Custom hook for managing modal transaction state and clipboard functionality
 export function useModalCandidate(): UseModalCandidateReturn {
-  const { connected, wallet  } = useWallet();
+  const { connected, wallet } = useWallet();
   // State for tracking modal visibility
   const [isModalOpen, setIsModalOpen] = useState(false);
   // State for tracking if text was successfully copied
@@ -30,12 +29,12 @@ export function useModalCandidate(): UseModalCandidateReturn {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setProposalText(e.target.value);
-  }
+  };
   const handleCheckChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTermChecked(e.target.checked);
-  }
+  };
   // Function to handle copying text to clipboard
-  const handleSubmitProposal = async () => {
+  const handleSubmitProposal = async (onRequestClose: () => void) => {
     if (!connected) {
       alert("Please connect your wallet.");
       return;
@@ -51,17 +50,18 @@ export function useModalCandidate(): UseModalCandidateReturn {
       return;
     }
     const address = await wallet.getUsedAddress();
-    console.log(address)
+    console.log(address);
 
-    const candidate = new CandidateEntity;
+    const candidate = new CandidateEntity();
     candidate.propursal = proposalText;
     candidate.address = address.toBech32() as string;
-    candidate.conditionTerm= isTermsChecked;
+    candidate.conditionTerm = isTermsChecked;
     // Enviar la propuesta a la base de datos Candidate
     try {
       // Lógica para agregar la propuesta a la base de datos (ej. Candidate)
       await CandidateApi.createApi(candidate);
       alert("Your proposal has been submitted successfully.");
+      onRequestClose();
     } catch (error) {
       console.error("Error submitting proposal:", error);
       alert("There was an error submitting your proposal.");
@@ -69,6 +69,15 @@ export function useModalCandidate(): UseModalCandidateReturn {
   };
 
   // Return the modal and clipboard states and their handlers
-  return { isModalOpen, setIsModalOpen, proposalText, userWalletAddress, isTermsChecked, handleInputChange, handleCheckChange, handleSubmitProposal, connected };
+  return {
+    isModalOpen,
+    setIsModalOpen,
+    proposalText,
+    userWalletAddress,
+    isTermsChecked,
+    handleInputChange,
+    handleCheckChange,
+    handleSubmitProposal,
+    connected,
+  };
 }
-

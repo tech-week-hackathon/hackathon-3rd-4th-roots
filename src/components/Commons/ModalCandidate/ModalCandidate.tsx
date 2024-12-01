@@ -1,8 +1,8 @@
-import React from 'react';
-import Modal from 'react-modal';
-import styles from './ModalCandidate.module.scss';
-import { useModalCandidate } from './useModalCandidate';
-import Link from 'next/link';
+import React from "react";
+import Modal from "react-modal";
+import styles from "./ModalCandidate.module.scss";
+import { useModalCandidate } from "./useModalCandidate";
+import Link from "next/link";
 
 // Define the interface for the component's props
 interface ModalCandidateProps {
@@ -15,7 +15,7 @@ interface ModalCandidateProps {
 const ModalCandidate: React.FC<ModalCandidateProps> = ({
   isOpen,
   onRequestClose,
-  closeButtonText = 'Close'
+  closeButtonText = "Close",
 }) => {
   // Import custom hooks for clipboard copy state and handler function
   const {
@@ -25,7 +25,7 @@ const ModalCandidate: React.FC<ModalCandidateProps> = ({
     handleInputChange,
     handleCheckChange,
     handleSubmitProposal,
-    connected
+    connected,
   } = useModalCandidate();
 
   return (
@@ -59,25 +59,44 @@ const ModalCandidate: React.FC<ModalCandidateProps> = ({
           onChange={(e) => handleCheckChange(e)}
         />
         <label htmlFor="termsCheckbox" className={styles.text}>
-          I agree to the <Link href="/code-conduct" target="_blank" rel="noopener noreferrer">Terms and Conditions</Link>
+          I agree to the{" "}
+          <a href="/code-conduct" target="_blank" rel="noopener noreferrer">
+            Terms and Conditions
+          </a>
         </label>
       </div>
-
-      {/* Proposal button */}
-      <button
-        onClick={handleSubmitProposal}
-        disabled={!connected || !isTermsChecked || proposalText.trim() === ""}
-        className={styles.proposalButton}
-      >
-        Submit Candidature
-      </button>
+      {!isTermsChecked ? (
+        <>
+          <br />
+          <p className={styles.text}>
+            Please agree to the{" "}
+            <a href="/code-conduct" target="_blank" rel="noopener noreferrer">
+              Terms and Conditions
+            </a>
+          </p>
+        </>
+      ) : (
+        <>
+          {" "}
+          {/* Proposal button */}
+          <button
+            onClick={() => handleSubmitProposal(onRequestClose)}
+            disabled={
+              !connected || !isTermsChecked || proposalText.trim() === ""
+            }
+            className={styles.proposalButton}
+          >
+            Submit Candidature
+          </button>
+        </>
+      )}
 
       {/* Close button for the modal */}
       <button onClick={onRequestClose} className={styles.closeButton}>
         {closeButtonText}
       </button>
-    </Modal>);
+    </Modal>
+  );
 };
 
 export default ModalCandidate;
-
