@@ -39,7 +39,7 @@ export default function Header() {
             <Link href="/code-conduct">Code Conduct</Link>
             <Link href="/constitution">Constitution</Link>
             <Link href="/candidature">Candidature</Link>
-            <Link href="/todolist">To Do List</Link>
+            <Link href="/toDoList">To Do List</Link>
           </div>
         </div>
 
