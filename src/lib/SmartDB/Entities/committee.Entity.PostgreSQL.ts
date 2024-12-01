@@ -1,13 +1,13 @@
 import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
-import { committeeEntity } from './committee.Entity';
+import { CommitteeEntity } from './Committee.Entity';
 import { PostgreSQLAppliedFor, getPostgreSQLTableName } from 'smart-db';
 import { BaseEntityPostgreSQL  } from 'smart-db/backEnd';
 
-@PostgreSQLAppliedFor([committeeEntity])
-@Entity({ name: getPostgreSQLTableName(committeeEntity.className()) })
+@PostgreSQLAppliedFor([CommitteeEntity])
+@Entity({ name: getPostgreSQLTableName(CommitteeEntity.className()) })
 @Index(['scriptHash', ]) // Add indices as needed
-export class committeeEntityPostgreSQL extends BaseEntityPostgreSQL  {
-    protected static Entity = committeeEntity;
+export class CommitteeEntityPostgreSQL extends BaseEntityPostgreSQL  {
+    protected static Entity = CommitteeEntity;
 
     // #region fields
 
@@ -18,29 +18,25 @@ export class committeeEntityPostgreSQL extends BaseEntityPostgreSQL  {
     scriptHash!:string;
     @Column({ type: "int"  })
     revelance!:number;
-    @Column({ type: "varchar", length: 255  })
-    lala!:string;
-    @Column({ type: "varchar", length: 255  })
-    la!:string;
 
     // #endregion fields
 
     // #region internal class methods
 
-    public getPostgreSQLStatic(): typeof committeeEntityPostgreSQL {
-        return this.constructor as typeof committeeEntityPostgreSQL;
+    public getPostgreSQLStatic(): typeof CommitteeEntityPostgreSQL {
+        return this.constructor as typeof CommitteeEntityPostgreSQL;
     }
 
-    public static getPostgreSQLStatic(): typeof committeeEntityPostgreSQL {
-        return this as typeof committeeEntityPostgreSQL;
+    public static getPostgreSQLStatic(): typeof CommitteeEntityPostgreSQL {
+        return this as typeof CommitteeEntityPostgreSQL;
     }
 
-    public getStatic(): typeof committeeEntity {
-        return committeeEntityPostgreSQL.getPostgreSQLStatic().getStatic() as typeof committeeEntity;
+    public getStatic(): typeof CommitteeEntity {
+        return CommitteeEntityPostgreSQL.getPostgreSQLStatic().getStatic() as typeof CommitteeEntity;
     }
 
-    public static getStatic(): typeof committeeEntity {
-        return this.Entity as typeof committeeEntity;
+    public static getStatic(): typeof CommitteeEntity {
+        return this.Entity as typeof CommitteeEntity;
     }
 
     public className(): string {

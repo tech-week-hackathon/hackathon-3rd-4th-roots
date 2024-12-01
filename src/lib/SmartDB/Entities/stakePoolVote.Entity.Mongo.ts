@@ -3,12 +3,12 @@ import { Schema, model, models } from 'mongoose';
 import 'reflect-metadata';
 import { MongoAppliedFor  } from 'smart-db';
 import { BaseEntityMongo  } from 'smart-db/backEnd';
-import { stakePoolVoteEntity } from './stakePoolVote.Entity';
+import { StakePoolVoteEntity } from './StakePoolVote.Entity';
 
-@MongoAppliedFor([stakePoolVoteEntity])
-export class stakePoolVoteEntityMongo extends BaseEntityMongo  {
-    protected static Entity = stakePoolVoteEntity;
-    protected static _mongoTableName: string = stakePoolVoteEntity.className();
+@MongoAppliedFor([StakePoolVoteEntity])
+export class StakePoolVoteEntityMongo extends BaseEntityMongo  {
+    protected static Entity = StakePoolVoteEntity;
+    protected static _mongoTableName: string = StakePoolVoteEntity.className();
 
     // #region fields
 
@@ -20,20 +20,20 @@ export class stakePoolVoteEntityMongo extends BaseEntityMongo  {
 
     // #region internal class methods
 
-    public getMongoStatic(): typeof stakePoolVoteEntityMongo {
-        return this.constructor as typeof stakePoolVoteEntityMongo;
+    public getMongoStatic(): typeof StakePoolVoteEntityMongo {
+        return this.constructor as typeof StakePoolVoteEntityMongo;
     }
 
-    public static getMongoStatic(): typeof stakePoolVoteEntityMongo {
-        return this as typeof stakePoolVoteEntityMongo;
+    public static getMongoStatic(): typeof StakePoolVoteEntityMongo {
+        return this as typeof StakePoolVoteEntityMongo;
     }
 
-    public getStatic(): typeof stakePoolVoteEntity {
-        return this.getMongoStatic().getStatic() as typeof stakePoolVoteEntity;
+    public getStatic(): typeof StakePoolVoteEntity {
+        return this.getMongoStatic().getStatic() as typeof StakePoolVoteEntity;
     }
 
-    public static getStatic(): typeof stakePoolVoteEntity {
-        return this.Entity as typeof stakePoolVoteEntity;
+    public static getStatic(): typeof StakePoolVoteEntity {
+        return this.Entity as typeof StakePoolVoteEntity;
     }
 
     public className(): string {

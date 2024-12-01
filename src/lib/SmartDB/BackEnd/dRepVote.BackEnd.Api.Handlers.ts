@@ -5,18 +5,18 @@ import {
     BaseBackEndApplied,
     BaseBackEndMethods,
 } from 'smart-db/backEnd';
-import { dRepVoteEntity } from '../Entities/dRepVote.Entity';
+import { DRepVoteEntity } from '../Entities/DRepVote.Entity';
 
-@BackEndAppliedFor(dRepVoteEntity)
-export class dRepVoteBackEndApplied extends BaseBackEndApplied   {
-    protected static _Entity = dRepVoteEntity;
+@BackEndAppliedFor(DRepVoteEntity)
+export class DRepVoteBackEndApplied extends BaseBackEndApplied   {
+    protected static _Entity = DRepVoteEntity;
     protected static _BackEndMethods = BaseBackEndMethods ;
 }
 
-@BackEndApiHandlersFor(dRepVoteEntity)
-export class dRepVoteApiHandlers extends BaseBackEndApiHandlers    {
-    protected static _Entity = dRepVoteEntity;
-    protected static _BackEndApplied = dRepVoteBackEndApplied;
+@BackEndApiHandlersFor(DRepVoteEntity)
+export class DRepVoteApiHandlers extends BaseBackEndApiHandlers    {
+    protected static _Entity = DRepVoteEntity;
+    protected static _BackEndApplied = DRepVoteBackEndApplied;
 
 }
 

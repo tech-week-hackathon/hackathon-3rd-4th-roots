@@ -3,38 +3,36 @@ import { Schema, model, models } from 'mongoose';
 import 'reflect-metadata';
 import { MongoAppliedFor  } from 'smart-db';
 import { BaseEntityMongo  } from 'smart-db/backEnd';
-import { committeeEntity } from './committee.Entity';
+import { CommitteeEntity } from './Committee.Entity';
 
-@MongoAppliedFor([committeeEntity])
-export class committeeEntityMongo extends BaseEntityMongo  {
-    protected static Entity = committeeEntity;
-    protected static _mongoTableName: string = committeeEntity.className();
+@MongoAppliedFor([CommitteeEntity])
+export class CommitteeEntityMongo extends BaseEntityMongo  {
+    protected static Entity = CommitteeEntity;
+    protected static _mongoTableName: string = CommitteeEntity.className();
 
     // #region fields
 
     // scriptHash:String
     // revelance:Int
-    // lala:String
-    // la:String
 
     // #endregion fields
 
     // #region internal class methods
 
-    public getMongoStatic(): typeof committeeEntityMongo {
-        return this.constructor as typeof committeeEntityMongo;
+    public getMongoStatic(): typeof CommitteeEntityMongo {
+        return this.constructor as typeof CommitteeEntityMongo;
     }
 
-    public static getMongoStatic(): typeof committeeEntityMongo {
-        return this as typeof committeeEntityMongo;
+    public static getMongoStatic(): typeof CommitteeEntityMongo {
+        return this as typeof CommitteeEntityMongo;
     }
 
-    public getStatic(): typeof committeeEntity {
-        return this.getMongoStatic().getStatic() as typeof committeeEntity;
+    public getStatic(): typeof CommitteeEntity {
+        return this.getMongoStatic().getStatic() as typeof CommitteeEntity;
     }
 
-    public static getStatic(): typeof committeeEntity {
-        return this.Entity as typeof committeeEntity;
+    public static getStatic(): typeof CommitteeEntity {
+        return this.Entity as typeof CommitteeEntity;
     }
 
     public className(): string {
@@ -53,15 +51,11 @@ export class committeeEntityMongo extends BaseEntityMongo  {
         interface Interface {
             scriptHash: string;
             revelance: number;
-            lala: string;
-            la: string;
         }
 
         const schema = new Schema<Interface>({
             scriptHash: { type: String, required: true },
             revelance: { type: Number, required: true },
-            lala: { type: String, required: true },
-            la: { type: String, required: true },
         });
 
         const ModelDB = models[this._mongoTableName] || model<Interface>(this._mongoTableName, schema);

@@ -5,18 +5,18 @@ import {
     BaseBackEndApplied,
     BaseBackEndMethods,
 } from 'smart-db/backEnd';
-import { stakePoolVoteEntity } from '../Entities/stakePoolVote.Entity';
+import { StakePoolVoteEntity } from '../Entities/StakePoolVote.Entity';
 
-@BackEndAppliedFor(stakePoolVoteEntity)
-export class stakePoolVoteBackEndApplied extends BaseBackEndApplied   {
-    protected static _Entity = stakePoolVoteEntity;
+@BackEndAppliedFor(StakePoolVoteEntity)
+export class StakePoolVoteBackEndApplied extends BaseBackEndApplied   {
+    protected static _Entity = StakePoolVoteEntity;
     protected static _BackEndMethods = BaseBackEndMethods ;
 }
 
-@BackEndApiHandlersFor(stakePoolVoteEntity)
-export class stakePoolVoteApiHandlers extends BaseBackEndApiHandlers    {
-    protected static _Entity = stakePoolVoteEntity;
-    protected static _BackEndApplied = stakePoolVoteBackEndApplied;
+@BackEndApiHandlersFor(StakePoolVoteEntity)
+export class StakePoolVoteApiHandlers extends BaseBackEndApiHandlers    {
+    protected static _Entity = StakePoolVoteEntity;
+    protected static _BackEndApplied = StakePoolVoteBackEndApplied;
 
 }
 

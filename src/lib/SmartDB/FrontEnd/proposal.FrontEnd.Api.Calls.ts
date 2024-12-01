@@ -1,8 +1,8 @@
 import { BaseFrontEndApiCalls    } from 'smart-db';
-import { proposalEntity } from '../Entities/proposal.Entity';
+import { ProposalEntity } from '../Entities/Proposal.Entity';
 
-export class proposalApi extends  BaseFrontEndApiCalls    {
-    protected static _Entity = proposalEntity;
+export class ProposalApi extends  BaseFrontEndApiCalls    {
+    protected static _Entity = ProposalEntity;
 
     // #region api
 

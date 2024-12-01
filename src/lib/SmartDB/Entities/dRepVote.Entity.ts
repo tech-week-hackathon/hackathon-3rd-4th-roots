@@ -3,9 +3,9 @@ import { Convertible, BaseEntity, asEntity } from 'smart-db';
 import {  } from 'lucid-cardano';
 
 @asEntity()
-export class dRepVoteEntity extends BaseEntity {
+export class DRepVoteEntity extends BaseEntity {
     protected static _apiRoute: string = 'drepvote';
-    protected static _className: string = 'dRepVote';
+    protected static _className: string = 'DRepVote';
 
 
     // #region fields

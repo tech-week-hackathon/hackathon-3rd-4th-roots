@@ -1,8 +1,8 @@
 import { BaseFrontEndApiCalls    } from 'smart-db';
-import { currentParametersEntity } from '../Entities/currentParameters.Entity';
+import { CurrentParametersEntity } from '../Entities/CurrentParameters.Entity';
 
-export class currentParametersApi extends  BaseFrontEndApiCalls    {
-    protected static _Entity = currentParametersEntity;
+export class CurrentParametersApi extends  BaseFrontEndApiCalls    {
+    protected static _Entity = CurrentParametersEntity;
 
     // #region api
 

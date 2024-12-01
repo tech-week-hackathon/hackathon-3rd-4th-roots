@@ -1,13 +1,13 @@
 import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
-import { currentParametersEntity } from './currentParameters.Entity';
+import { CurrentParametersEntity } from './CurrentParameters.Entity';
 import { PostgreSQLAppliedFor, getPostgreSQLTableName } from 'smart-db';
 import { BaseEntityPostgreSQL  } from 'smart-db/backEnd';
 
-@PostgreSQLAppliedFor([currentParametersEntity])
-@Entity({ name: getPostgreSQLTableName(currentParametersEntity.className()) })
+@PostgreSQLAppliedFor([CurrentParametersEntity])
+@Entity({ name: getPostgreSQLTableName(CurrentParametersEntity.className()) })
 
-export class currentParametersEntityPostgreSQL extends BaseEntityPostgreSQL  {
-    protected static Entity = currentParametersEntity;
+export class CurrentParametersEntityPostgreSQL extends BaseEntityPostgreSQL  {
+    protected static Entity = CurrentParametersEntity;
 
     // #region fields
 
@@ -33,20 +33,20 @@ export class currentParametersEntityPostgreSQL extends BaseEntityPostgreSQL  {
 
     // #region internal class methods
 
-    public getPostgreSQLStatic(): typeof currentParametersEntityPostgreSQL {
-        return this.constructor as typeof currentParametersEntityPostgreSQL;
+    public getPostgreSQLStatic(): typeof CurrentParametersEntityPostgreSQL {
+        return this.constructor as typeof CurrentParametersEntityPostgreSQL;
     }
 
-    public static getPostgreSQLStatic(): typeof currentParametersEntityPostgreSQL {
-        return this as typeof currentParametersEntityPostgreSQL;
+    public static getPostgreSQLStatic(): typeof CurrentParametersEntityPostgreSQL {
+        return this as typeof CurrentParametersEntityPostgreSQL;
     }
 
-    public getStatic(): typeof currentParametersEntity {
-        return currentParametersEntityPostgreSQL.getPostgreSQLStatic().getStatic() as typeof currentParametersEntity;
+    public getStatic(): typeof CurrentParametersEntity {
+        return CurrentParametersEntityPostgreSQL.getPostgreSQLStatic().getStatic() as typeof CurrentParametersEntity;
     }
 
-    public static getStatic(): typeof currentParametersEntity {
-        return this.Entity as typeof currentParametersEntity;
+    public static getStatic(): typeof CurrentParametersEntity {
+        return this.Entity as typeof CurrentParametersEntity;
     }
 
     public className(): string {

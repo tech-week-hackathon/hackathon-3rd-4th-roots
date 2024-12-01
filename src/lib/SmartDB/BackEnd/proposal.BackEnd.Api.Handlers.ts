@@ -5,18 +5,18 @@ import {
     BaseBackEndApplied,
     BaseBackEndMethods,
 } from 'smart-db/backEnd';
-import { proposalEntity } from '../Entities/proposal.Entity';
+import { ProposalEntity } from '../Entities/Proposal.Entity';
 
-@BackEndAppliedFor(proposalEntity)
-export class proposalBackEndApplied extends BaseBackEndApplied   {
-    protected static _Entity = proposalEntity;
+@BackEndAppliedFor(ProposalEntity)
+export class ProposalBackEndApplied extends BaseBackEndApplied   {
+    protected static _Entity = ProposalEntity;
     protected static _BackEndMethods = BaseBackEndMethods ;
 }
 
-@BackEndApiHandlersFor(proposalEntity)
-export class proposalApiHandlers extends BaseBackEndApiHandlers    {
-    protected static _Entity = proposalEntity;
-    protected static _BackEndApplied = proposalBackEndApplied;
+@BackEndApiHandlersFor(ProposalEntity)
+export class ProposalApiHandlers extends BaseBackEndApiHandlers    {
+    protected static _Entity = ProposalEntity;
+    protected static _BackEndApplied = ProposalBackEndApplied;
 
 }
 

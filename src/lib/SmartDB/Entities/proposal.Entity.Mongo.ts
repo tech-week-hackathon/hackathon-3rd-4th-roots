@@ -3,12 +3,12 @@ import { Schema, model, models } from 'mongoose';
 import 'reflect-metadata';
 import { MongoAppliedFor  } from 'smart-db';
 import { BaseEntityMongo  } from 'smart-db/backEnd';
-import { proposalEntity } from './proposal.Entity';
+import { ProposalEntity } from './Proposal.Entity';
 
-@MongoAppliedFor([proposalEntity])
-export class proposalEntityMongo extends BaseEntityMongo  {
-    protected static Entity = proposalEntity;
-    protected static _mongoTableName: string = proposalEntity.className();
+@MongoAppliedFor([ProposalEntity])
+export class ProposalEntityMongo extends BaseEntityMongo  {
+    protected static Entity = ProposalEntity;
+    protected static _mongoTableName: string = ProposalEntity.className();
 
     // #region fields
 
@@ -25,20 +25,20 @@ export class proposalEntityMongo extends BaseEntityMongo  {
 
     // #region internal class methods
 
-    public getMongoStatic(): typeof proposalEntityMongo {
-        return this.constructor as typeof proposalEntityMongo;
+    public getMongoStatic(): typeof ProposalEntityMongo {
+        return this.constructor as typeof ProposalEntityMongo;
     }
 
-    public static getMongoStatic(): typeof proposalEntityMongo {
-        return this as typeof proposalEntityMongo;
+    public static getMongoStatic(): typeof ProposalEntityMongo {
+        return this as typeof ProposalEntityMongo;
     }
 
-    public getStatic(): typeof proposalEntity {
-        return this.getMongoStatic().getStatic() as typeof proposalEntity;
+    public getStatic(): typeof ProposalEntity {
+        return this.getMongoStatic().getStatic() as typeof ProposalEntity;
     }
 
-    public static getStatic(): typeof proposalEntity {
-        return this.Entity as typeof proposalEntity;
+    public static getStatic(): typeof ProposalEntity {
+        return this.Entity as typeof ProposalEntity;
     }
 
     public className(): string {

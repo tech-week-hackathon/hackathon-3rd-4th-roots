@@ -1,8 +1,8 @@
 import { BaseFrontEndApiCalls    } from 'smart-db';
-import { stakePoolVoteEntity } from '../Entities/stakePoolVote.Entity';
+import { StakePoolVoteEntity } from '../Entities/StakePoolVote.Entity';
 
-export class stakePoolVoteApi extends  BaseFrontEndApiCalls    {
-    protected static _Entity = stakePoolVoteEntity;
+export class StakePoolVoteApi extends  BaseFrontEndApiCalls    {
+    protected static _Entity = StakePoolVoteEntity;
 
     // #region api
 

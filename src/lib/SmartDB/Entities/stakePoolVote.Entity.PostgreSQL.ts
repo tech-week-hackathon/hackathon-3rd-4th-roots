@@ -1,13 +1,13 @@
 import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
-import { stakePoolVoteEntity } from './stakePoolVote.Entity';
+import { StakePoolVoteEntity } from './StakePoolVote.Entity';
 import { PostgreSQLAppliedFor, getPostgreSQLTableName } from 'smart-db';
 import { BaseEntityPostgreSQL  } from 'smart-db/backEnd';
 
-@PostgreSQLAppliedFor([stakePoolVoteEntity])
-@Entity({ name: getPostgreSQLTableName(stakePoolVoteEntity.className()) })
+@PostgreSQLAppliedFor([StakePoolVoteEntity])
+@Entity({ name: getPostgreSQLTableName(StakePoolVoteEntity.className()) })
 
-export class stakePoolVoteEntityPostgreSQL extends BaseEntityPostgreSQL  {
-    protected static Entity = stakePoolVoteEntity;
+export class StakePoolVoteEntityPostgreSQL extends BaseEntityPostgreSQL  {
+    protected static Entity = StakePoolVoteEntity;
 
     // #region fields
 
@@ -25,20 +25,20 @@ export class stakePoolVoteEntityPostgreSQL extends BaseEntityPostgreSQL  {
 
     // #region internal class methods
 
-    public getPostgreSQLStatic(): typeof stakePoolVoteEntityPostgreSQL {
-        return this.constructor as typeof stakePoolVoteEntityPostgreSQL;
+    public getPostgreSQLStatic(): typeof StakePoolVoteEntityPostgreSQL {
+        return this.constructor as typeof StakePoolVoteEntityPostgreSQL;
     }
 
-    public static getPostgreSQLStatic(): typeof stakePoolVoteEntityPostgreSQL {
-        return this as typeof stakePoolVoteEntityPostgreSQL;
+    public static getPostgreSQLStatic(): typeof StakePoolVoteEntityPostgreSQL {
+        return this as typeof StakePoolVoteEntityPostgreSQL;
     }
 
-    public getStatic(): typeof stakePoolVoteEntity {
-        return stakePoolVoteEntityPostgreSQL.getPostgreSQLStatic().getStatic() as typeof stakePoolVoteEntity;
+    public getStatic(): typeof StakePoolVoteEntity {
+        return StakePoolVoteEntityPostgreSQL.getPostgreSQLStatic().getStatic() as typeof StakePoolVoteEntity;
     }
 
-    public static getStatic(): typeof stakePoolVoteEntity {
-        return this.Entity as typeof stakePoolVoteEntity;
+    public static getStatic(): typeof StakePoolVoteEntity {
+        return this.Entity as typeof StakePoolVoteEntity;
     }
 
     public className(): string {

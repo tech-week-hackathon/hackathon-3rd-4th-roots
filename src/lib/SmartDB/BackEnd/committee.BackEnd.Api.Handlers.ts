@@ -5,18 +5,18 @@ import {
     BaseBackEndApplied,
     BaseBackEndMethods,
 } from 'smart-db/backEnd';
-import { committeeEntity } from '../Entities/committee.Entity';
+import { CommitteeEntity } from '../Entities/Committee.Entity';
 
-@BackEndAppliedFor(committeeEntity)
-export class committeeBackEndApplied extends BaseBackEndApplied   {
-    protected static _Entity = committeeEntity;
+@BackEndAppliedFor(CommitteeEntity)
+export class CommitteeBackEndApplied extends BaseBackEndApplied   {
+    protected static _Entity = CommitteeEntity;
     protected static _BackEndMethods = BaseBackEndMethods ;
 }
 
-@BackEndApiHandlersFor(committeeEntity)
-export class committeeApiHandlers extends BaseBackEndApiHandlers    {
-    protected static _Entity = committeeEntity;
-    protected static _BackEndApplied = committeeBackEndApplied;
+@BackEndApiHandlersFor(CommitteeEntity)
+export class CommitteeApiHandlers extends BaseBackEndApiHandlers    {
+    protected static _Entity = CommitteeEntity;
+    protected static _BackEndApplied = CommitteeBackEndApplied;
 
 }
 

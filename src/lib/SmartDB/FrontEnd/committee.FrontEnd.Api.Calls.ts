@@ -1,8 +1,8 @@
 import { BaseFrontEndApiCalls    } from 'smart-db';
-import { committeeEntity } from '../Entities/committee.Entity';
+import { CommitteeEntity } from '../Entities/Committee.Entity';
 
-export class committeeApi extends  BaseFrontEndApiCalls    {
-    protected static _Entity = committeeEntity;
+export class CommitteeApi extends  BaseFrontEndApiCalls    {
+    protected static _Entity = CommitteeEntity;
 
     // #region api
 

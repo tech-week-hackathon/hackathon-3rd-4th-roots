@@ -3,12 +3,12 @@ import { Schema, model, models } from 'mongoose';
 import 'reflect-metadata';
 import { MongoAppliedFor  } from 'smart-db';
 import { BaseEntityMongo  } from 'smart-db/backEnd';
-import { dRepVoteEntity } from './dRepVote.Entity';
+import { DRepVoteEntity } from './DRepVote.Entity';
 
-@MongoAppliedFor([dRepVoteEntity])
-export class dRepVoteEntityMongo extends BaseEntityMongo  {
-    protected static Entity = dRepVoteEntity;
-    protected static _mongoTableName: string = dRepVoteEntity.className();
+@MongoAppliedFor([DRepVoteEntity])
+export class DRepVoteEntityMongo extends BaseEntityMongo  {
+    protected static Entity = DRepVoteEntity;
+    protected static _mongoTableName: string = DRepVoteEntity.className();
 
     // #region fields
 
@@ -20,20 +20,20 @@ export class dRepVoteEntityMongo extends BaseEntityMongo  {
 
     // #region internal class methods
 
-    public getMongoStatic(): typeof dRepVoteEntityMongo {
-        return this.constructor as typeof dRepVoteEntityMongo;
+    public getMongoStatic(): typeof DRepVoteEntityMongo {
+        return this.constructor as typeof DRepVoteEntityMongo;
     }
 
-    public static getMongoStatic(): typeof dRepVoteEntityMongo {
-        return this as typeof dRepVoteEntityMongo;
+    public static getMongoStatic(): typeof DRepVoteEntityMongo {
+        return this as typeof DRepVoteEntityMongo;
     }
 
-    public getStatic(): typeof dRepVoteEntity {
-        return this.getMongoStatic().getStatic() as typeof dRepVoteEntity;
+    public getStatic(): typeof DRepVoteEntity {
+        return this.getMongoStatic().getStatic() as typeof DRepVoteEntity;
     }
 
-    public static getStatic(): typeof dRepVoteEntity {
-        return this.Entity as typeof dRepVoteEntity;
+    public static getStatic(): typeof DRepVoteEntity {
+        return this.Entity as typeof DRepVoteEntity;
     }
 
     public className(): string {

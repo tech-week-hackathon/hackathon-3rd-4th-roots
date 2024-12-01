@@ -1,13 +1,13 @@
 import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
-import { proposalEntity } from './proposal.Entity';
+import { ProposalEntity } from './Proposal.Entity';
 import { PostgreSQLAppliedFor, getPostgreSQLTableName } from 'smart-db';
 import { BaseEntityPostgreSQL  } from 'smart-db/backEnd';
 
-@PostgreSQLAppliedFor([proposalEntity])
-@Entity({ name: getPostgreSQLTableName(proposalEntity.className()) })
+@PostgreSQLAppliedFor([ProposalEntity])
+@Entity({ name: getPostgreSQLTableName(ProposalEntity.className()) })
 
-export class proposalEntityPostgreSQL extends BaseEntityPostgreSQL  {
-    protected static Entity = proposalEntity;
+export class ProposalEntityPostgreSQL extends BaseEntityPostgreSQL  {
+    protected static Entity = ProposalEntity;
 
     // #region fields
 
@@ -35,20 +35,20 @@ export class proposalEntityPostgreSQL extends BaseEntityPostgreSQL  {
 
     // #region internal class methods
 
-    public getPostgreSQLStatic(): typeof proposalEntityPostgreSQL {
-        return this.constructor as typeof proposalEntityPostgreSQL;
+    public getPostgreSQLStatic(): typeof ProposalEntityPostgreSQL {
+        return this.constructor as typeof ProposalEntityPostgreSQL;
     }
 
-    public static getPostgreSQLStatic(): typeof proposalEntityPostgreSQL {
-        return this as typeof proposalEntityPostgreSQL;
+    public static getPostgreSQLStatic(): typeof ProposalEntityPostgreSQL {
+        return this as typeof ProposalEntityPostgreSQL;
     }
 
-    public getStatic(): typeof proposalEntity {
-        return proposalEntityPostgreSQL.getPostgreSQLStatic().getStatic() as typeof proposalEntity;
+    public getStatic(): typeof ProposalEntity {
+        return ProposalEntityPostgreSQL.getPostgreSQLStatic().getStatic() as typeof ProposalEntity;
     }
 
-    public static getStatic(): typeof proposalEntity {
-        return this.Entity as typeof proposalEntity;
+    public static getStatic(): typeof ProposalEntity {
+        return this.Entity as typeof ProposalEntity;
     }
 
     public className(): string {

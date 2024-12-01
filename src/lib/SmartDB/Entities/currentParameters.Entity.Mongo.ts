@@ -3,12 +3,12 @@ import { Schema, model, models } from 'mongoose';
 import 'reflect-metadata';
 import { MongoAppliedFor  } from 'smart-db';
 import { BaseEntityMongo  } from 'smart-db/backEnd';
-import { currentParametersEntity } from './currentParameters.Entity';
+import { CurrentParametersEntity } from './CurrentParameters.Entity';
 
-@MongoAppliedFor([currentParametersEntity])
-export class currentParametersEntityMongo extends BaseEntityMongo  {
-    protected static Entity = currentParametersEntity;
-    protected static _mongoTableName: string = currentParametersEntity.className();
+@MongoAppliedFor([CurrentParametersEntity])
+export class CurrentParametersEntityMongo extends BaseEntityMongo  {
+    protected static Entity = CurrentParametersEntity;
+    protected static _mongoTableName: string = CurrentParametersEntity.className();
 
     // #region fields
 
@@ -24,20 +24,20 @@ export class currentParametersEntityMongo extends BaseEntityMongo  {
 
     // #region internal class methods
 
-    public getMongoStatic(): typeof currentParametersEntityMongo {
-        return this.constructor as typeof currentParametersEntityMongo;
+    public getMongoStatic(): typeof CurrentParametersEntityMongo {
+        return this.constructor as typeof CurrentParametersEntityMongo;
     }
 
-    public static getMongoStatic(): typeof currentParametersEntityMongo {
-        return this as typeof currentParametersEntityMongo;
+    public static getMongoStatic(): typeof CurrentParametersEntityMongo {
+        return this as typeof CurrentParametersEntityMongo;
     }
 
-    public getStatic(): typeof currentParametersEntity {
-        return this.getMongoStatic().getStatic() as typeof currentParametersEntity;
+    public getStatic(): typeof CurrentParametersEntity {
+        return this.getMongoStatic().getStatic() as typeof CurrentParametersEntity;
     }
 
-    public static getStatic(): typeof currentParametersEntity {
-        return this.Entity as typeof currentParametersEntity;
+    public static getStatic(): typeof CurrentParametersEntity {
+        return this.Entity as typeof CurrentParametersEntity;
     }
 
     public className(): string {

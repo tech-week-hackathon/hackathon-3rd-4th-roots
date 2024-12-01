@@ -1,13 +1,13 @@
 import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
-import { dRepVoteEntity } from './dRepVote.Entity';
+import { DRepVoteEntity } from './DRepVote.Entity';
 import { PostgreSQLAppliedFor, getPostgreSQLTableName } from 'smart-db';
 import { BaseEntityPostgreSQL  } from 'smart-db/backEnd';
 
-@PostgreSQLAppliedFor([dRepVoteEntity])
-@Entity({ name: getPostgreSQLTableName(dRepVoteEntity.className()) })
+@PostgreSQLAppliedFor([DRepVoteEntity])
+@Entity({ name: getPostgreSQLTableName(DRepVoteEntity.className()) })
 
-export class dRepVoteEntityPostgreSQL extends BaseEntityPostgreSQL  {
-    protected static Entity = dRepVoteEntity;
+export class DRepVoteEntityPostgreSQL extends BaseEntityPostgreSQL  {
+    protected static Entity = DRepVoteEntity;
 
     // #region fields
 
@@ -25,20 +25,20 @@ export class dRepVoteEntityPostgreSQL extends BaseEntityPostgreSQL  {
 
     // #region internal class methods
 
-    public getPostgreSQLStatic(): typeof dRepVoteEntityPostgreSQL {
-        return this.constructor as typeof dRepVoteEntityPostgreSQL;
+    public getPostgreSQLStatic(): typeof DRepVoteEntityPostgreSQL {
+        return this.constructor as typeof DRepVoteEntityPostgreSQL;
     }
 
-    public static getPostgreSQLStatic(): typeof dRepVoteEntityPostgreSQL {
-        return this as typeof dRepVoteEntityPostgreSQL;
+    public static getPostgreSQLStatic(): typeof DRepVoteEntityPostgreSQL {
+        return this as typeof DRepVoteEntityPostgreSQL;
     }
 
-    public getStatic(): typeof dRepVoteEntity {
-        return dRepVoteEntityPostgreSQL.getPostgreSQLStatic().getStatic() as typeof dRepVoteEntity;
+    public getStatic(): typeof DRepVoteEntity {
+        return DRepVoteEntityPostgreSQL.getPostgreSQLStatic().getStatic() as typeof DRepVoteEntity;
     }
 
-    public static getStatic(): typeof dRepVoteEntity {
-        return this.Entity as typeof dRepVoteEntity;
+    public static getStatic(): typeof DRepVoteEntity {
+        return this.Entity as typeof DRepVoteEntity;
     }
 
     public className(): string {

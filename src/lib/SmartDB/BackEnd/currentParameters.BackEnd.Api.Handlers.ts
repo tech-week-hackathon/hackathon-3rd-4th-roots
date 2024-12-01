@@ -5,18 +5,18 @@ import {
     BaseBackEndApplied,
     BaseBackEndMethods,
 } from 'smart-db/backEnd';
-import { currentParametersEntity } from '../Entities/currentParameters.Entity';
+import { CurrentParametersEntity } from '../Entities/CurrentParameters.Entity';
 
-@BackEndAppliedFor(currentParametersEntity)
-export class currentParametersBackEndApplied extends BaseBackEndApplied   {
-    protected static _Entity = currentParametersEntity;
+@BackEndAppliedFor(CurrentParametersEntity)
+export class CurrentParametersBackEndApplied extends BaseBackEndApplied   {
+    protected static _Entity = CurrentParametersEntity;
     protected static _BackEndMethods = BaseBackEndMethods ;
 }
 
-@BackEndApiHandlersFor(currentParametersEntity)
-export class currentParametersApiHandlers extends BaseBackEndApiHandlers    {
-    protected static _Entity = currentParametersEntity;
-    protected static _BackEndApplied = currentParametersBackEndApplied;
+@BackEndApiHandlersFor(CurrentParametersEntity)
+export class CurrentParametersApiHandlers extends BaseBackEndApiHandlers    {
+    protected static _Entity = CurrentParametersEntity;
+    protected static _BackEndApplied = CurrentParametersBackEndApplied;
 
 }
 

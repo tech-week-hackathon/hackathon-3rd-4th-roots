@@ -3,9 +3,9 @@ import { Convertible, BaseEntity, asEntity } from 'smart-db';
 import {  } from 'lucid-cardano';
 
 @asEntity()
-export class committeeEntity extends BaseEntity {
+export class CommitteeEntity extends BaseEntity {
     protected static _apiRoute: string = 'committee';
-    protected static _className: string = 'committee';
+    protected static _className: string = 'Committee';
 
 
     // #region fields
@@ -13,10 +13,6 @@ export class committeeEntity extends BaseEntity {
     scriptHash!: string;
     @Convertible()
     revelance!: number;
-    @Convertible()
-    lala!: string;
-    @Convertible()
-    la!: string;
 
     // #endregion fields
 
@@ -28,8 +24,6 @@ export class committeeEntity extends BaseEntity {
         ...super.alwaysFieldsForSelect,
           scriptHash: true,
           revelance: true,
-          lala: true,
-          la: true,
     };
 
     // #endregion db

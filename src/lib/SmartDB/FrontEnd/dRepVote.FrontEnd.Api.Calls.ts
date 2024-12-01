@@ -1,8 +1,8 @@
 import { BaseFrontEndApiCalls    } from 'smart-db';
-import { dRepVoteEntity } from '../Entities/dRepVote.Entity';
+import { DRepVoteEntity } from '../Entities/DRepVote.Entity';
 
-export class dRepVoteApi extends  BaseFrontEndApiCalls    {
-    protected static _Entity = dRepVoteEntity;
+export class DRepVoteApi extends  BaseFrontEndApiCalls    {
+    protected static _Entity = DRepVoteEntity;
 
     // #region api
 

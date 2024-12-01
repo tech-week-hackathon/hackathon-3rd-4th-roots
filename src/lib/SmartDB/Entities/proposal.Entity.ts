@@ -3,9 +3,9 @@ import { Convertible, BaseEntity, asEntity } from 'smart-db';
 import {  } from 'lucid-cardano';
 
 @asEntity()
-export class proposalEntity extends BaseEntity {
+export class ProposalEntity extends BaseEntity {
     protected static _apiRoute: string = 'proposal';
-    protected static _className: string = 'proposal';
+    protected static _className: string = 'Proposal';
 
 
     // #region fields
